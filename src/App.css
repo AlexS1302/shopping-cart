@@ -1,0 +1,43 @@
+.App {
+  display: grid;
+  grid-template-rows: 100px 2.5fr;
+  min-height: 100vh;
+}
+
+/* Header */
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  gap: 3rem;
+}
+
+.header-title {
+  text-align: center;
+}
+
+.search-section,
+.cart-link,
+.shop-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-input {
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.cart-link,
+.cart-link:visited,
+.shop-link,
+.shop-link:visited {
+  text-decoration: none;
+  color: black;
+}
+
+/* HomePage */
