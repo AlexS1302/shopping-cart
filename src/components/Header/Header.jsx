@@ -2,34 +2,35 @@ import { Link } from "react-router";
 import { Search } from "lucide-react";
 import { ShoppingBag } from "lucide-react";
 import { ShoppingCart } from "lucide-react";
+import styles from "./Header.module.css";
 
 function Header() {
   return (
-    <div className="Header">
+    <div className={styles.Header}>
       <nav>
-        <h1 className="header-title">
+        <h1 className={styles.headerTitle}>
           <Link to="/">Shopping Cart</Link>
         </h1>
 
-        <div className="search-section">
+        <div className={styles.searchSection}>
           <Search />
           <input
             id="search"
             name="search"
             placeholder="What are you looking for?"
-            className="search-input"
+            className={styles.searchInput}
           ></input>
         </div>
 
-        <ul className="nav-links">
-          <li className="shop-section">
-            <Link to="shop" className="shop-link">
+        <ul className={styles.navLinks}>
+          <li className={styles.shopSection}>
+            <Link to="shop" className={styles.shopLink}>
               <ShoppingCart />
               Shop
             </Link>
           </li>
-          <li className="cart-section">
-            <Link to="cart" className="cart-link">
+          <li className={styles.cartSection}>
+            <Link to="cart" className={styles.cartLink}>
               <ShoppingBag />
               Cart
             </Link>
