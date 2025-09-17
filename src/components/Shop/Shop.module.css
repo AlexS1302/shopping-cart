@@ -1,0 +1,21 @@
+.Shop {
+  display: grid;
+  grid-template-columns: minmax(200px, 25%) 1fr;
+}
+
+.sidebar {
+  background-color: white;
+}
+
+.productGrid {
+  background-color: #d8f3dc;
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: minmax(400px, auto);
+  gap: 1rem;
+}
+
+.productCard {
+  background-color: white;
+}
