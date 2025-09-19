@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   padding: 1rem;
-  border-bottom: 1px solid lightgrey;
   height: 100%;
 }
 
@@ -26,19 +25,29 @@ nav {
 
 .searchSection,
 .cartLink,
-.shopLink {
+.shopLink,
+.favouritesLink {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
+.searchSection {
+  position: relative;
+}
+
 .searchInput {
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: rgba(211, 211, 211, 0.04);
-  padding: 0.6rem;
+  padding: 0.6rem 0.6rem 0.6rem 0.8rem;
   width: 100%;
-  border: 1px solid rgb(180, 180, 180);
+  border: 1px solid black;
   outline: none;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 10px;
 }
 
 .headerTitle a,
@@ -46,7 +55,8 @@ nav {
 .cartLink,
 .cartLink:visited,
 .shopLink,
-.shopLink:visited {
+.shopLink:visited, .favouritesLink,
+.favouritesLink:visited {
   text-decoration: none;
   color: black;
 }
