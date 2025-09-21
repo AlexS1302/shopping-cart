@@ -1,0 +1,51 @@
+.ErrorPage {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorImage {
+  width: clamp(300px, 50vw, 800px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.messageContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-inline: 2rem;
+  text-align: center;
+  gap: 1.2rem;
+}
+
+.messageContainer h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.homeButton {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  text-decoration: none;
+  color: #F5F5F5;
+  background-color: #52b788;
+  font-weight: 500;
+  padding: 0.8rem 1rem;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.homeButton:hover {
+  background-color: #40916c;
+}
+
+@media (width < 500px) {
+  .ErrorPage {
+    flex-direction: column-reverse;
+  }
+}
