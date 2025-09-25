@@ -8,37 +8,36 @@ function Footer() {
         {footerLinks.map((section) => (
           <section key={section.id} className={styles.footerSection}>
             <h4 className={styles.footerHeading}>{section.heading}</h4>
-            {section.heading === "Plentiful" && (
-              <p className={styles.infoNote}>Follow us on social media</p>
+            {section.heading === "Plentiful" ? (
+              <div>
+                <p>Follow us on</p>
+                <ul>{generateLinks(section)}</ul>
+              </div>
+            ) : (
+              <ul>{generateLinks(section)}</ul>
             )}
-            <ul>
-              {section.links.map((link) => (
-                <li key={link.id}>
-                  {link.src ? (
-                    <a
-                      href={link.href}
-                      onClick={(e) => e.preventDefault()}
-                      className={styles.socialLink}
-                    >
-                      <img src={link.src} alt={link.alt} />
-                    </a>
-                  ) : (
-                    <a
-                      href={link.href}
-                      onClick={(e) => e.preventDefault()}
-                      className={styles.infoLink}
-                    >
-                      {link.label}
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ul>
           </section>
         ))}
       </div>
+      <p className={styles.copyright}>
+        ©Copyright 2025 Plentiful. All rights reserved.
+      </p>
     </div>
   );
 }
+
+const generateLinks = (section) => {
+  return section.links.map((link) => (
+    <li key={link.id}>
+      <a
+        href={link.href}
+        onClick={(e) => e.preventDefault()}
+        className={link.src ? styles.socialLink : styles.infoLink}
+      >
+        {link.src ? <img src={link.src} alt={link.alt} /> : link.label}
+      </a>
+    </li>
+  ));
+};
 
 export default Footer;
