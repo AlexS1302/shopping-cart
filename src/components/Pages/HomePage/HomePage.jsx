@@ -42,7 +42,11 @@ function HomePage() {
 
       <section className={styles.mostPopularContainer}>
         <h2 className={styles.mostPopularTitle}>Most Popular</h2>
-        <div className={styles.mostPopularGrid}></div>
+        <div className={styles.mostPopularGrid}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </section>
 
       <section className={styles.aboutUsContainer}>
@@ -51,17 +55,28 @@ function HomePage() {
       </section>
 
       <section className={styles.newsletterContainer}>
-        <h2 className={styles.newsletterTitle}></h2>
-        <h2 className={styles.newsletterDescription}></h2>
-        <input
-          type="text"
-          id="newsletterInput"
-          name="newsletter"
-          className={styles.newsletterInput}
-        ></input>
-        <button type="button" className={styles.newsletterButton}>
-          Subscribe
-        </button>
+        <div className={styles.newsletterInfo}>
+          <h2 className={styles.newsletterTitle}>
+            Join our Newsletter for Exclusive Offers!
+          </h2>
+          <h2 className={styles.newsletterDescription}>
+            Be the first to hear about new arrivals, special discounts, and
+            insider-only updates
+          </h2>
+        </div>
+
+        <div>
+          <input
+            type="text"
+            id="newsletterInput"
+            name="newsletter"
+            className={styles.newsletterInput}
+            placeholder="Enter your email"
+          ></input>
+          <button type="button" className={styles.newsletterButton}>
+            Subscribe
+          </button>
+        </div>
       </section>
     </div>
   );
