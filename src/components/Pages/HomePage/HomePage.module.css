@@ -1,4 +1,46 @@
 .HomePage {
   min-height: 100vh;
   display: grid;
+  gap: 2rem;
+}
+
+.categoriesTitle {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+  border-radius: 10px;
+}
+
+.categoriesGrid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.furnitureCategory {
+  grid-row: 1 / span 2;
+  grid-column: 1;
+}
+
+.furnitureCategory img {
+  object-position: 60% 50%;
+}
+
+.skincareCategory img {
+  grid-row: 2;
+  grid-column: 2;
+  object-position: 60% 50%;
+}
+
+.categoriesTitle,
+.mostPopularTitle,
+.aboutUsTitle {
+  text-align: center;
 }

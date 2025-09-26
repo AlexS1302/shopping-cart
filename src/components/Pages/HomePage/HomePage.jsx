@@ -1,27 +1,51 @@
 import styles from "./HomePage.module.css";
 import Carousel from "../../UI/Carousel/Carousel";
+import furniturePic from "../../../assets/images/top-categories/furniture.jpg";
+import fragrancePic from "../../../assets/images/top-categories/fragrance.jpg";
+import homeDecorPic from "../../../assets/images/top-categories/home-decor.jpg";
+import skincarePic from "../../../assets/images/top-categories/skincare.jpg";
+import beautyPic from "../../../assets/images/top-categories/beauty.jpg";
 
 function HomePage() {
   return (
     <div className={styles.HomePage}>
       <Carousel />
 
-      <div className={styles.categoriesContainer}>
+      <section className={styles.categoriesContainer}>
         <h2 className={styles.categoriesTitle}>Top Categories</h2>
-        <div className={styles.categoriesGrid}></div>
-      </div>
+        <div className={styles.categoriesGrid}>
+          <div className={styles.furnitureCategory}>
+            <img
+              src={furniturePic}
+              alt="Cozy living room with fireplace and modern furniture"
+            ></img>
+          </div>
+          <div className={styles.fragranceCategory}>
+            <img src={fragrancePic} alt="Chanel No. 5 eau de parfum"></img>
+          </div>
+          <div className={styles.homeDecorCategory}>
+            <img src={homeDecorPic} alt="Candle"></img>
+          </div>
+          <div className={styles.skincareCategory}>
+            <img src={skincarePic} alt="Illumination Mask by Lume"></img>
+          </div>
+          <div className={styles.beautyCategory}>
+            <img src={beautyPic} alt="Lipstick by BECCA"></img>
+          </div>
+        </div>
+      </section>
 
-      <div className={styles.mostPopularContainer}>
+      <section className={styles.mostPopularContainer}>
         <h2 className={styles.mostPopularTitle}>Most Popular</h2>
         <div className={styles.mostPopularGrid}></div>
-      </div>
+      </section>
 
-      <div className={styles.aboutUsContainer}>
+      <section className={styles.aboutUsContainer}>
         <h2 className={styles.aboutUsTitle}>About Us</h2>
         <div className={styles.aboutUsGrid}></div>
-      </div>
+      </section>
 
-      <div className={styles.newsletterContainer}>
+      <section className={styles.newsletterContainer}>
         <h2 className={styles.newsletterTitle}></h2>
         <h2 className={styles.newsletterDescription}></h2>
         <input
@@ -33,7 +57,7 @@ function HomePage() {
         <button type="button" className={styles.newsletterButton}>
           Subscribe
         </button>
-      </div>
+      </section>
     </div>
   );
 }
