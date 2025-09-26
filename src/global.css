@@ -7,3 +7,7 @@ body,
 #root {
   height: 100%;
 }
+
+:root {
+  --box-shadow-light: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}

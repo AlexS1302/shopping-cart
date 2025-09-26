@@ -5,6 +5,7 @@
   height: 100%;
   background-color: #f8f8f8;
   border-radius: 10px;
+  box-shadow: var(--box-shadow-light);
 }
 
 nav {

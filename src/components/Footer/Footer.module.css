@@ -7,6 +7,7 @@
   align-items: center;
   padding: 1rem;
   max-width: 100%;
+  box-shadow: var(--box-shadow-light);
 }
 
 .footerContent {

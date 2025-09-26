@@ -12,6 +12,7 @@
   aspect-ratio: 16 / 9;
   border-radius: 10px;
   max-inline-size: 100%;
+  box-shadow: var(--box-shadow-light);
 }
 
 .prev,

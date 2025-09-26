@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { Undo2 } from "lucide-react";
-import errorImage from "../../../assets/images/404-cat.jpg";
+import errorImage from "../../../assets/images/error/404-cat.jpg";
 import styles from "./ErrorPage.module.css";
 
 function ErrorPage() {

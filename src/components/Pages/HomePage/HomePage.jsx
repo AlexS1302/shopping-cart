@@ -19,18 +19,23 @@ function HomePage() {
               src={furniturePic}
               alt="Cozy living room with fireplace and modern furniture"
             ></img>
+            <span>Furniture</span>
           </div>
           <div className={styles.fragranceCategory}>
             <img src={fragrancePic} alt="Chanel No. 5 eau de parfum"></img>
+            <span>Fragrance</span>
           </div>
           <div className={styles.homeDecorCategory}>
             <img src={homeDecorPic} alt="Candle"></img>
+            <span>Home Decor</span>
           </div>
           <div className={styles.skincareCategory}>
             <img src={skincarePic} alt="Illumination Mask by Lume"></img>
+            <span>Skincare</span>
           </div>
           <div className={styles.beautyCategory}>
             <img src={beautyPic} alt="Lipstick by BECCA"></img>
+            <span>Beauty</span>
           </div>
         </div>
       </section>
