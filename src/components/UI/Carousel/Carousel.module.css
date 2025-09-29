@@ -9,17 +9,29 @@
   display: block;
   object-fit: cover;
   max-height: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 5 / 2;
   border-radius: 10px;
   max-inline-size: 100%;
   box-shadow: var(--box-shadow-light);
 }
 
+.furniturePic {
+  object-position: 50% 80%;
+}
+
+.skincarePic {
+  object-position: 50% 70%;
+}
+
+.groceryPic {
+  object-position: 50% 50%;
+}
+
 .prev,
 .next {
   position: absolute;
-  /* top: 50%; */
-  /* transform: translateY(-50%); */
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
   border-radius: 2px;
   border: none;

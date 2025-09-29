@@ -6,14 +6,17 @@ const carouselImages = [
   {
     src: furniturePic,
     alt: "Cozy setup featuring notebooks and a cup of tea on a wooden tray",
+    className: "furniturePic",
   },
   {
     src: skincarePic,
     alt: "UpCircle caffeine skincare collection",
+    className: "skincarePic",
   },
   {
     src: groceryPic,
     alt: "A cup of hot chocolate and cinnamon on a marble table",
+    className: "groceryPic",
   },
 ];
 

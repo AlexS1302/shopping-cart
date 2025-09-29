@@ -10,7 +10,11 @@ function Carousel() {
   return (
     <div className={styles.carouselContainer}>
       <div className={styles.carouselSlide}>
-        <img src={currentItem.src} alt={currentItem.alt} />
+        <img
+          src={currentItem.src}
+          alt={currentItem.alt}
+          className={styles[currentItem.className]}
+        />
       </div>
 
       <button type="button" onClick={prev} className={styles.prev}>

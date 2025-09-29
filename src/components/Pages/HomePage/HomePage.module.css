@@ -46,6 +46,7 @@
   background-color: white;
   padding: 1rem;
   border-radius: 20px;
+  text-align: center;
   box-shadow: var(--box-shadow-light);
   cursor: pointer;
 }
@@ -111,18 +112,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 2.5rem;
   text-align: center;
   color: white;
   text-shadow: 1px 1px 2px rgb(0, 0, 0, 0.2);
 }
 
 .newsletterDescription {
-  margin-top: 0;
   font-size: 1.2rem;
 }
 
 .newsletterInput {
-  margin-top: 1rem;
   border-radius: 20px;
   border: none;
   outline: none;
@@ -138,6 +138,6 @@
   padding: 0.5rem 1rem;
   position: absolute;
   right: 3px;
-  top: 21px;
+  top: 5px;
   cursor: pointer;
 }
