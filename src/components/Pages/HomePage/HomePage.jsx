@@ -42,16 +42,34 @@ function HomePage() {
 
       <section className={styles.mostPopularContainer}>
         <h2 className={styles.mostPopularTitle}>Most Popular</h2>
-        <div className={styles.mostPopularGrid}>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <div className={styles.mostPopularGrid}></div>
       </section>
 
       <section className={styles.aboutUsContainer}>
         <h2 className={styles.aboutUsTitle}>About Us</h2>
-        <div className={styles.aboutUsGrid}></div>
+        <div className={styles.aboutUsGrid}>
+          <div className={styles.sustainability}>
+            <span>Mindful Materials, Meaningful Impact</span>
+          </div>
+          <div className={styles.stores}>
+            <span>40+ Stores Worldwide</span>
+          </div>
+          <div className={styles.ourStory}>
+            <h3>Our Story</h3>
+            <p>
+              From one store to over 40 worldwide, our journey has always been
+              about curating trusted brands and everyday essentials with care.
+              We're here to make shopping feel personal, thoughtful, and a
+              little more joyful, wherever you are.
+            </p>
+            <p>
+              As we grow, we're also making more mindful choices: using
+              eco-friendly packaging, partnering with responsible brands, and
+              finding ways to reduce our impact while still delivering what you
+              love.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section className={styles.newsletterContainer}>
