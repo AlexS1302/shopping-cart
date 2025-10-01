@@ -1,16 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "./Shop.module.css";
+import { Star } from "lucide-react";
 
 function Shop() {
-  const [productInfo, setProductInfo] = useState({
-    id: null,
-    title: "",
-    description: "",
-    price: null,
-    thumbnail: "",
-    category: "",
-    rating: null,
-  });
+  const [productInfo, setProductInfo] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -56,7 +49,28 @@ function Shop() {
       <section className={styles.productGrid}>
         {productInfo &&
           productInfo.map((product) => (
-            <article key={product.id} className={styles.productCard}></article>
+            <article key={product.id} className={styles.productCard}>
+              <img
+                src={product.thumbnail}
+                alt={`Picture of ${product.title}`}
+                className={styles.productThumbnail}
+              ></img>
+              <div className={styles.productText}>
+                <div className={styles.productCategory}>{product.category}</div>
+                <div className={styles.productTitle}>{product.title}</div>
+                <div className={styles.productDesc}>{product.description}</div>
+              </div>
+              <div className={styles.productMetrics}>
+                <div className={styles.productPrice}>£{product.price}</div>
+                <div className={styles.productRating}>
+                  <Star fill="#fdd85d" strokeWidth={0} />
+                  {product.rating}
+                </div>
+              </div>
+              <button type="button" className={styles.addToCartBtn}>
+                Add to Cart
+              </button>
+            </article>
           ))}
       </section>
     </div>

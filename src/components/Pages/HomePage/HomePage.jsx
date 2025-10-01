@@ -63,7 +63,7 @@ function HomePage() {
               little more joyful, wherever you are.
             </p>
             <p>
-              As we grow, we're also making more mindful choices: using
+              As we grow, we're also making more mindful choices such as using
               eco-friendly packaging, partnering with responsible brands, and
               finding ways to reduce our impact while still delivering what you
               love.
