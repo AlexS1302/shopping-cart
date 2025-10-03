@@ -78,6 +78,11 @@
   text-align: center;
   box-shadow: var(--box-shadow-light);
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.categoriesGrid span:hover {
+  background-color: #f0f0f0;
 }
 
 .furnitureCategory {

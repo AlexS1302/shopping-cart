@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import { useState } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
@@ -6,11 +6,15 @@ import styles from "./App.module.css";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   return (
     <div className={styles.App}>
       <main>
-        <header>
+        <header
+          className={isHomePage ? styles.overlayHeader : styles.normalHeader}
+        >
           <Header />
         </header>
         <Outlet context={{ cartItems, setCartItems }} />
