@@ -16,13 +16,14 @@ function Header() {
         </h1>
 
         <div className={styles.searchSection}>
+          <Search className={styles.searchIcon} />
           <input
             id="search"
             name="search"
-            placeholder="Search"
+            placeholder="Skincare"
             className={styles.searchInput}
           ></input>
-          <Search className={styles.searchIcon} />
+          <button type="button" className={styles.searchButton}>Search</button>
         </div>
 
         <ul className={styles.navLinks}>

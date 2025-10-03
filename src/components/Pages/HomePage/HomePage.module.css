@@ -7,7 +7,7 @@
 /* Hero */
 
 .hero {
-  background-image: url(../../../assets/images/carousel/skincare.jpg);
+  background-image: url(../../../assets/images/hero/skincare.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 30%;
@@ -39,11 +39,6 @@
 }
 
 /* Top Categories */
-
-.categoriesTitle {
-  margin-top: 0;
-  margin-bottom: 2rem;
-}
 
 .categoriesTitle,
 .mostPopularTitle,
@@ -130,7 +125,7 @@
 }
 
 .ourStory::before {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .sustainability > *,
@@ -155,6 +150,13 @@
   width: 100%;
   color: white;
   overflow: hidden;
+}
+
+.sustainability,
+.stores,
+.ourStory h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 .sustainability {
@@ -236,12 +238,17 @@
 
 .newsletterButton {
   background-color: black;
-  border: 2px solid black;
+  border: none;
   border-radius: 20px;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   position: absolute;
   right: 3px;
   top: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletterButton:hover {
+  background-color: #333333;
 }
