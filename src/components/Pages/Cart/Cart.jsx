@@ -1,6 +1,9 @@
+import styles from "./Cart.module.css";
+import { useOutletContext } from "react-router";
+
 function Cart() {
-  return (
-    <div>Cart</div>
-  )
+  const {cartItems, setCartItems} = useOutletContext();
+
+  return <div>Cart</div>;
 }
-export default Cart
+export default Cart;

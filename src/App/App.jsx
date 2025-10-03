@@ -1,17 +1,19 @@
 import { Outlet } from "react-router";
+import { useState } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import styles from "./App.module.css";
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <div className={styles.App}>
-      <header>
-        <Header />
-      </header>
-
       <main>
-        <Outlet />
+        <header>
+          <Header />
+        </header>
+        <Outlet context={{ cartItems, setCartItems }} />
       </main>
 
       <footer>

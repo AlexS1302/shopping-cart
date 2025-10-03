@@ -1,5 +1,4 @@
 import styles from "./HomePage.module.css";
-import Carousel from "../../UI/Carousel/Carousel";
 import furniturePic from "../../../assets/images/top-categories/furniture.jpg";
 import fragrancePic from "../../../assets/images/top-categories/fragrance.jpg";
 import homeDecorPic from "../../../assets/images/top-categories/home-decor.jpg";
@@ -9,7 +8,9 @@ import beautyPic from "../../../assets/images/top-categories/beauty.jpg";
 function HomePage() {
   return (
     <div className={styles.HomePage}>
-      <Carousel />
+      <section className={styles.hero}>
+        <button type="button">Explore Skincare</button>
+      </section>
 
       <section className={styles.categoriesContainer}>
         <h2 className={styles.categoriesTitle}>Top Categories</h2>
@@ -40,10 +41,10 @@ function HomePage() {
         </div>
       </section>
 
-      <section className={styles.mostPopularContainer}>
+      {/* <section className={styles.mostPopularContainer}>
         <h2 className={styles.mostPopularTitle}>Most Popular</h2>
         <div className={styles.mostPopularGrid}></div>
-      </section>
+      </section> */}
 
       <section className={styles.aboutUsContainer}>
         <h2 className={styles.aboutUsTitle}>About Us</h2>

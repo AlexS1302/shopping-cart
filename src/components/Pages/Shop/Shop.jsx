@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import styles from "./Shop.module.css";
 import { Star } from "lucide-react";
+import { useOutletContext } from "react-router";
 
 function Shop() {
+  const { setCartItems } = useOutletContext;
   const [productInfo, setProductInfo] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -67,7 +69,11 @@ function Shop() {
                   {product.rating}
                 </div>
               </div>
-              <button type="button" className={styles.addToCartBtn}>
+              <button
+                type="button"
+                onClick={() => setCartItems((prev) => [...prev, product])}
+                className={styles.addToCartBtn}
+              >
                 Add to Cart
               </button>
             </article>

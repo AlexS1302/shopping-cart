@@ -1,8 +1,20 @@
 .App {
   display: grid;
-  grid-template-rows: minmax(100px, 1fr) auto;
+  grid-template-rows: minmax(100px, auto) 1fr auto;
   min-height: 100vh;
+  background-color: #f8f8f8;
   padding: 2rem 3rem;
   overflow-x: hidden;
   gap: 2rem;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 1;
+}
+
+main {
+  position: relative;
 }
