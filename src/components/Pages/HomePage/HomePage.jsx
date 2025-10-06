@@ -9,7 +9,7 @@ function HomePage() {
   return (
     <div className={styles.HomePage}>
       <section className={styles.hero}>
-        <button type="button">Explore Skincare</button>
+        {/* <button type="button">Explore Skincare</button> */}
       </section>
 
       <section className={styles.categoriesContainer}>

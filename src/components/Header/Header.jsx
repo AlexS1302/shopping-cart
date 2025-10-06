@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import { Search } from "lucide-react";
-import { ShoppingBag, ShoppingCart, Heart } from "lucide-react";
 import logo from "../../assets/icons/logo.svg";
 import styles from "./Header.module.css";
 
@@ -21,9 +20,12 @@ function Header() {
             id="search"
             name="search"
             placeholder="Skincare"
+            size="30"
             className={styles.searchInput}
           ></input>
-          <button type="button" className={styles.searchButton}>Search</button>
+          <button type="button" className={styles.searchButton}>
+            Search
+          </button>
         </div>
 
         <ul className={styles.navLinks}>

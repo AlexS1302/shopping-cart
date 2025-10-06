@@ -11,12 +11,13 @@ function App() {
 
   return (
     <div className={styles.App}>
+      <header
+        className={isHomePage ? styles.overlayHeader : styles.normalHeader}
+      >
+        <Header />
+      </header>
+
       <main>
-        <header
-          className={isHomePage ? styles.overlayHeader : styles.normalHeader}
-        >
-          <Header />
-        </header>
         <Outlet context={{ cartItems, setCartItems }} />
       </main>
 
