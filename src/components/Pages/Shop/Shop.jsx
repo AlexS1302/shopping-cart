@@ -1,18 +1,25 @@
 import { useEffect, useState } from "react";
 import styles from "./Shop.module.css";
 import { Star } from "lucide-react";
-import { useOutletContext } from "react-router";
+import { useOutletContext, useSearchParams } from "react-router";
 
 function Shop() {
   const { setCartItems } = useOutletContext;
+  const [searchParams] = useSearchParams();
   const [productInfo, setProductInfo] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const query = searchParams.get("q");
+
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch("https://dummyjson.com/products");
+        const endpoint = query
+          ? `https://dummyjson.com/products/search?q=${query}`
+          : `https://dummyjson.com/products`;
+
+        const response = await fetch(endpoint);
 
         if (!response.ok) {
           throw new Error("Something went wrong");
@@ -39,7 +46,7 @@ function Shop() {
     }
 
     fetchProducts();
-  }, []);
+  }, [query]);
 
   if (loading) return <p>Loading</p>;
   if (error) return <p>A network error was encountered</p>;

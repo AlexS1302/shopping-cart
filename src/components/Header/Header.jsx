@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Search } from "lucide-react";
+import SearchBar from "../UI/SearchBar/SearchBar";
 import logo from "../../assets/icons/logo.svg";
 import styles from "./Header.module.css";
 
@@ -14,19 +14,7 @@ function Header() {
           </Link>
         </h1>
 
-        <div className={styles.searchSection}>
-          <Search className={styles.searchIcon} />
-          <input
-            id="search"
-            name="search"
-            placeholder="Skincare"
-            size="30"
-            className={styles.searchInput}
-          ></input>
-          <button type="button" className={styles.searchButton}>
-            Search
-          </button>
-        </div>
+        <SearchBar />
 
         <ul className={styles.navLinks}>
           <li className={styles.shopSection}>
