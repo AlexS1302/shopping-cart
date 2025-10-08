@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useOutletContext, useSearchParams } from "react-router";
-import { Star } from "lucide-react";
+import { Star, Heart } from "lucide-react";
 import styles from "./Shop.module.css";
 import RefinePanel from "../../UI/RefinePanel/RefinePanel";
 
@@ -60,6 +60,7 @@ function Shop() {
         {productInfo &&
           productInfo.map((product) => (
             <article key={product.id} className={styles.productCard}>
+              <Heart className={styles.favouriteIcon}/>
               <img
                 src={product.thumbnail}
                 alt={`Picture of ${product.title}`}
