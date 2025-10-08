@@ -28,36 +28,34 @@ function RefinePanel() {
           />
         </div>
 
-        {openDropdown === "category" && (
-          <div
-            className={`${styles.categoryDropdown} ${
-              openDropdown ? styles.open : styles.closed
-            }`}
-          >
-            <div className={styles.categoryContent}>
-              <label>
-                <input type="checkbox"></input>
-                Furniture
-              </label>
-              <label>
-                <input type="checkbox"></input>
-                Fragrance
-              </label>
-              <label>
-                <input type="checkbox"></input>
-                Home Decor
-              </label>
-              <label>
-                <input type="checkbox"></input>
-                Skincare
-              </label>
-              <label>
-                <input type="checkbox"></input>
-                Beauty
-              </label>
-            </div>
+        <div
+          className={`${styles.categoryDropdown} ${
+            openDropdown === "category" ? styles.open : styles.closed
+          }`}
+        >
+          <div className={styles.categoryContent}>
+            <label>
+              <input type="checkbox"></input>
+              Furniture
+            </label>
+            <label>
+              <input type="checkbox"></input>
+              Fragrance
+            </label>
+            <label>
+              <input type="checkbox"></input>
+              Home Decor
+            </label>
+            <label>
+              <input type="checkbox"></input>
+              Skincare
+            </label>
+            <label>
+              <input type="checkbox"></input>
+              Beauty
+            </label>
           </div>
-        )}
+        </div>
       </div>
 
       <div className={styles.sortContainer}>
@@ -74,15 +72,13 @@ function RefinePanel() {
           />
         </div>
 
-        {openDropdown === "sort" && (
-          <div
-            className={`${styles.sortDropdown} ${
-              openDropdown ? styles.open : styles.closed
-            }`}
-          >
-            <div className={styles.sortContent}></div>
-          </div>
-        )}
+        <div
+          className={`${styles.sortDropdown} ${
+            openDropdown === "sort" ? styles.open : styles.closed
+          }`}
+        >
+          <div className={styles.sortContent}></div>
+        </div>
       </div>
     </aside>
   );

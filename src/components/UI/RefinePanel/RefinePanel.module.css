@@ -5,15 +5,12 @@
   padding-inline: 2rem;
 }
 
-/*  Category */
-
 .categoryContainer,
 .sortContainer {
   background-color: white;
   user-select: none;
   width: 200px;
   position: relative;
-  border: 1px solid #f1f2f3;
 }
 
 .categoryToggle,
@@ -23,7 +20,8 @@
   align-items: center;
   width: 100%;
   cursor: pointer;
-  padding: 1em;
+  padding: 1rem;
+  border: 1px solid #f1f2f3;
 }
 
 .categoryToggle div:first-child,
@@ -53,6 +51,7 @@
   position: absolute;
   z-index: 1;
   background-color: white;
+  border-radius: 0 0 10px 10px;
 }
 
 .categoryDropdown.open,
@@ -72,6 +71,7 @@
   gap: 1rem;
   padding: 1rem;
   border: 1px solid #f1f2f3;
+  border-radius: 0 0 10px 10px;
 }
 
 .categoryContent label {
@@ -79,4 +79,3 @@
   gap: 0.5rem;
 }
 
-/* Sort */
