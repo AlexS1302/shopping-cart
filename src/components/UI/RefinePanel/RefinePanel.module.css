@@ -1,0 +1,59 @@
+.refinePanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 2rem;
+}
+
+.categoryContainer {
+  background-color: white;
+  user-select: none;
+  width: 200px;
+  position: relative;
+  border: 1px solid #f1f2f3;
+}
+
+.categoryToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  padding: 1em;
+}
+
+.categoryToggle div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.categoryDropdown {
+  width: 200px;
+  transition: max-height 0.5s ease;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+}
+
+.categoryDropdown.open {
+  max-height: 500px;
+}
+
+.categoryDropdown.closed {
+  max-height: 0;
+}
+
+.categoryContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #f1f2f3;
+}
+
+.categoryContent label {
+  display: flex;
+  gap: 0.5rem;
+}

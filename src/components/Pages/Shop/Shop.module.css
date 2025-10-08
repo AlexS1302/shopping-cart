@@ -1,10 +1,8 @@
 .Shop {
   display: grid;
-  grid-template-columns: minmax(200px, 25%) 1fr;
-}
-
-.sidebar {
-  background-color: white;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(50px, auto) 1fr;
+  row-gap: 1rem;
 }
 
 .productGrid {

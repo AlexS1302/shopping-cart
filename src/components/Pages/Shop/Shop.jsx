@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import styles from "./Shop.module.css";
-import { Star } from "lucide-react";
 import { useOutletContext, useSearchParams } from "react-router";
+import { Star } from "lucide-react";
+import styles from "./Shop.module.css";
+import RefinePanel from "../../UI/RefinePanel/RefinePanel";
 
 function Shop() {
   const { setCartItems } = useOutletContext;
@@ -54,7 +55,7 @@ function Shop() {
 
   return (
     <div className={styles.Shop}>
-      <aside className={styles.sidebar}></aside>
+      <RefinePanel />
       <section className={styles.productGrid}>
         {productInfo &&
           productInfo.map((product) => (
