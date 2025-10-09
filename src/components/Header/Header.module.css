@@ -7,6 +7,10 @@
   width: 100vw; /* to prevent layout shift due to scrollbar */
 }
 
+.hamburgerIcon {
+  display: none;
+}
+
 nav {
   display: flex;
   align-items: center;
@@ -33,3 +37,5 @@ nav {
   width: 40px;
   height: 40px;
 }
+
+
