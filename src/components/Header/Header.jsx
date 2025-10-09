@@ -1,5 +1,7 @@
 import { Link } from "react-router";
-import SearchBar from "../UI/SearchBar/SearchBar";
+import { Menu } from "lucide-react";
+import SearchBar from "./SearchBar/SearchBar";
+import NavLinks from "./NavLinks/NavLinks";
 import logo from "../../assets/icons/logo.svg";
 import styles from "./Header.module.css";
 
@@ -16,23 +18,7 @@ function Header() {
 
         <SearchBar />
 
-        <ul className={styles.navLinks}>
-          <li className={styles.shopSection}>
-            <Link to="shop" className={styles.shopLink}>
-              Shop
-            </Link>
-          </li>
-          <li className={styles.cartSection}>
-            <Link to="cart" className={styles.cartLink}>
-              Cart
-            </Link>
-          </li>
-          <li className={styles.favouritesSection}>
-            <Link to="favourites" className={styles.favouritesLink}>
-              Favourites
-            </Link>
-          </li>
-        </ul>
+        <NavLinks />
       </nav>
     </div>
   );

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useOutletContext, useSearchParams } from "react-router";
 import { Star, Heart } from "lucide-react";
 import styles from "./Shop.module.css";
-import RefinePanel from "../../UI/RefinePanel/RefinePanel";
+import RefinePanel from "./RefinePanel/RefinePanel";
 
 function Shop() {
   const { setCartItems } = useOutletContext;
