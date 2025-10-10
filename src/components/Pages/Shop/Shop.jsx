@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import useFilteredProducts from "../../../hooks/useFilteredProducts";
 import { useOutletContext, useSearchParams } from "react-router";
 import { Star, Heart } from "lucide-react";
 import styles from "./Shop.module.css";
@@ -7,47 +8,25 @@ import RefinePanel from "./RefinePanel/RefinePanel";
 function Shop() {
   const { setCartItems } = useOutletContext;
   const [searchParams] = useSearchParams();
-  const [productInfo, setProductInfo] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
   const query = searchParams.get("q");
 
+  const [filters, setFilters] = useState({
+    category: "",
+    sortBy: "",
+    order: "asc",
+    limit: 30,
+    skip: 0,
+    search: query || "",
+  });
+
   useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const endpoint = query
-          ? `https://dummyjson.com/products/search?q=${query}`
-          : `https://dummyjson.com/products`;
-
-        const response = await fetch(endpoint);
-
-        if (!response.ok) {
-          throw new Error("Something went wrong");
-        }
-        const data = await response.json();
-
-        const simplifiedData = data.products.map((product) => ({
-          id: product.id,
-          title: product.title,
-          description: product.description,
-          price: product.price,
-          thumbnail: product.thumbnail,
-          category: product.category,
-          rating: product.rating,
-        }));
-
-        setProductInfo(simplifiedData);
-      } catch (error) {
-        console.error("Failed to fetch products:", error);
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchProducts();
+    setFilters((prev) => ({
+      ...prev,
+      search: query || "",
+    }));
   }, [query]);
+
+  const { productInfo, loading, error } = useFilteredProducts(filters);
 
   if (loading) return <p>Loading</p>;
   if (error) return <p>A network error was encountered</p>;
@@ -55,12 +34,12 @@ function Shop() {
 
   return (
     <div className={styles.Shop}>
-      <RefinePanel />
+      <RefinePanel filters={filters} setFilters={setFilters} />
       <section className={styles.productGrid}>
         {productInfo &&
           productInfo.map((product) => (
             <article key={product.id} className={styles.productCard}>
-              <Heart className={styles.favouriteIcon}/>
+              <Heart className={styles.favouriteIcon} />
               <img
                 src={product.thumbnail}
                 alt={`Picture of ${product.title}`}
