@@ -5,17 +5,16 @@ import { Search } from "lucide-react";
 
 function SearchBar() {
   const navigate = useNavigate();
-  const [query, setQuery] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
   const handleSearch = () => {
-    const trimmed = query.trim();
+    const trimmed = searchInput.trim();
     if (trimmed) {
       navigate(`/shop?q=${encodeURIComponent(trimmed)}`);
-      setQuery("");
     } else {
       navigate("/shop");
-      setQuery("");
     }
+    setSearchInput("");
   };
 
   const handleKeyDown = (e) => {
@@ -30,8 +29,8 @@ function SearchBar() {
       <input
         id="search"
         name="search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="Skincare"
         size="30"

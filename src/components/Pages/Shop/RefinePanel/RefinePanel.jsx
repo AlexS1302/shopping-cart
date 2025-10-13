@@ -1,8 +1,14 @@
 import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router";
 import styles from "./RefinePanel.module.css";
 import { ChevronDown, LibraryBig, ArrowDownWideNarrow } from "lucide-react";
 
-function RefinePanel({ setFilters }) {
+function RefinePanel() {
+  const navigate = useNavigate();
+
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category") || "";
+
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const toggleMenu = (menuId) => {
@@ -11,11 +17,17 @@ function RefinePanel({ setFilters }) {
 
   const handleCheckboxChange = (e) => {
     const { value, checked } = e.target;
+    const newCategory = checked ? value : "";
 
-    setFilters((prev) => ({
-      ...prev,
-      category: checked ? value : "",
-    }));
+    const params = new URLSearchParams(searchParams);
+    if (newCategory) {
+      params.set("category", newCategory);
+      params.delete("q");
+    } else {
+      params.delete("category");
+    }
+
+    navigate(`/shop?${params.toString()}`);
   };
 
   return (
@@ -47,6 +59,7 @@ function RefinePanel({ setFilters }) {
               <input
                 type="checkbox"
                 value="furniture"
+                checked={category === "furniture"}
                 onChange={handleCheckboxChange}
               ></input>
               Furniture
@@ -55,6 +68,7 @@ function RefinePanel({ setFilters }) {
               <input
                 type="checkbox"
                 value="fragrances"
+                checked={category === "fragrances"}
                 onChange={handleCheckboxChange}
               ></input>
               Fragrance
@@ -63,6 +77,7 @@ function RefinePanel({ setFilters }) {
               <input
                 type="checkbox"
                 value="home-decoration"
+                checked={category === "home-decoration"}
                 onChange={handleCheckboxChange}
               ></input>
               Home Decor
@@ -71,6 +86,7 @@ function RefinePanel({ setFilters }) {
               <input
                 type="checkbox"
                 value="skin-care"
+                checked={category === "skin-care"}
                 onChange={handleCheckboxChange}
               ></input>
               Skincare
@@ -79,6 +95,7 @@ function RefinePanel({ setFilters }) {
               <input
                 type="checkbox"
                 value="beauty"
+                checked={category === "beauty"}
                 onChange={handleCheckboxChange}
               ></input>
               Beauty

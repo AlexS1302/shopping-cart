@@ -8,17 +8,17 @@ function useFilteredProducts(filters) {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const { search, category, sortBy, order, limit, skip } = filters;
+        const { q, category, sortBy, order, limit, skip } = filters;
 
         let endpoint = "https://dummyjson.com/products";
         if (category) {
           endpoint += `/category/${category}`;
-        } else if (search) {
+        } else if (q) {
           endpoint += `/search`;
         }
 
         let queryParams = `?limit=${limit}&skip=${skip}`;
-        if (search) queryParams += `&q=${search}`;
+        if (q) queryParams += `&q=${q}`;
         if (sortBy) queryParams += `&sortBy=${sortBy}&order=${order}`;
 
         endpoint += queryParams;

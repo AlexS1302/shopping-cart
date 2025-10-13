@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import useFilteredProducts from "../../../hooks/useFilteredProducts";
 import { useOutletContext, useSearchParams } from "react-router";
 import { Star, Heart } from "lucide-react";
@@ -6,25 +6,27 @@ import styles from "./Shop.module.css";
 import RefinePanel from "./RefinePanel/RefinePanel";
 
 function Shop() {
-  const { setCartItems } = useOutletContext;
+  const { setCartItems } = useOutletContext();
+
   const [searchParams] = useSearchParams();
-  const query = searchParams.get("q");
+  const q = searchParams.get("q") || "";
+  const category = searchParams.get("category") || "";
+  const sortBy = searchParams.get("sortBy") || "";
+  const order = searchParams.get("order") || "asc";
+  const limit = parseInt(searchParams.get("limit") || 30);
+  const skip = parseInt(searchParams.get("skip") || 0);
 
-  const [filters, setFilters] = useState({
-    category: "",
-    sortBy: "",
-    order: "asc",
-    limit: 30,
-    skip: 0,
-    search: query || "",
-  });
-
-  useEffect(() => {
-    setFilters((prev) => ({
-      ...prev,
-      search: query || "",
-    }));
-  }, [query]);
+  const filters = useMemo(
+    () => ({
+      q,
+      category,
+      sortBy,
+      order,
+      limit,
+      skip,
+    }),
+    [q, category, sortBy, order, limit, skip]
+  );
 
   const { productInfo, loading, error } = useFilteredProducts(filters);
 
@@ -34,7 +36,7 @@ function Shop() {
 
   return (
     <div className={styles.Shop}>
-      <RefinePanel filters={filters} setFilters={setFilters} />
+      <RefinePanel filters={filters} />
       <section className={styles.productGrid}>
         {productInfo &&
           productInfo.map((product) => (

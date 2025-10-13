@@ -1,4 +1,5 @@
 import styles from "./HomePage.module.css";
+import { useNavigate } from "react-router";
 import furniturePic from "../../../assets/images/top-categories/furniture.jpg";
 import fragrancePic from "../../../assets/images/top-categories/fragrance.jpg";
 import homeDecorPic from "../../../assets/images/top-categories/home-decor.jpg";
@@ -6,6 +7,12 @@ import skincarePic from "../../../assets/images/top-categories/skincare.jpg";
 import beautyPic from "../../../assets/images/top-categories/beauty.jpg";
 
 function HomePage() {
+  const navigate = useNavigate();
+
+  const handleClick = (category) => {
+    navigate(`shop?category=${encodeURIComponent(category)}`);
+  };
+
   return (
     <div className={styles.HomePage}>
       <section className={styles.hero}>
@@ -20,23 +27,25 @@ function HomePage() {
               src={furniturePic}
               alt="Cozy living room with fireplace and modern furniture"
             ></img>
-            <span>Furniture</span>
+            <span onClick={() => handleClick("furniture")}>Furniture</span>
           </div>
           <div className={styles.fragranceCategory}>
             <img src={fragrancePic} alt="Chanel No. 5 eau de parfum"></img>
-            <span>Fragrance</span>
+            <span onClick={() => handleClick("fragrances")}>Fragrance</span>
           </div>
           <div className={styles.homeDecorCategory}>
             <img src={homeDecorPic} alt="Candle"></img>
-            <span>Home Decor</span>
+            <span onClick={() => handleClick("home-decoration")}>
+              Home Decor
+            </span>
           </div>
           <div className={styles.skincareCategory}>
             <img src={skincarePic} alt="Illumination Mask by Lume"></img>
-            <span>Skincare</span>
+            <span onClick={() => handleClick("skin-care")}>Skincare</span>
           </div>
           <div className={styles.beautyCategory}>
             <img src={beautyPic} alt="Lipstick by BECCA"></img>
-            <span>Beauty</span>
+            <span onClick={() => handleClick("beauty")}>Beauty</span>
           </div>
         </div>
       </section>
