@@ -27,25 +27,36 @@ function HomePage() {
               src={furniturePic}
               alt="Cozy living room with fireplace and modern furniture"
             ></img>
-            <span onClick={() => handleClick("furniture")}>Furniture</span>
+            <button type="button" onClick={() => handleClick("furniture")}>
+              Furniture
+            </button>
           </div>
           <div className={styles.fragranceCategory}>
             <img src={fragrancePic} alt="Chanel No. 5 eau de parfum"></img>
-            <span onClick={() => handleClick("fragrances")}>Fragrance</span>
+            <button type="button" onClick={() => handleClick("fragrances")}>
+              Fragrance
+            </button>
           </div>
           <div className={styles.homeDecorCategory}>
             <img src={homeDecorPic} alt="Candle"></img>
-            <span onClick={() => handleClick("home-decoration")}>
+            <button
+              type="button"
+              onClick={() => handleClick("home-decoration")}
+            >
               Home Decor
-            </span>
+            </button>
           </div>
           <div className={styles.skincareCategory}>
             <img src={skincarePic} alt="Illumination Mask by Lume"></img>
-            <span onClick={() => handleClick("skin-care")}>Skincare</span>
+            <button type="button" onClick={() => handleClick("skin-care")}>
+              Skincare
+            </button>
           </div>
           <div className={styles.beautyCategory}>
             <img src={beautyPic} alt="Lipstick by BECCA"></img>
-            <span onClick={() => handleClick("beauty")}>Beauty</span>
+            <button type="button" onClick={() => handleClick("beauty")}>
+              Beauty
+            </button>
           </div>
         </div>
       </section>
