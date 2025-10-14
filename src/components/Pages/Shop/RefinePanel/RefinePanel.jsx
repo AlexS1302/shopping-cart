@@ -28,6 +28,19 @@ function RefinePanel() {
     }
 
     navigate(`/shop?${params.toString()}`);
+    toggleMenu(null);
+  };
+
+  const handleSortSelect = (selectedSort) => {
+    const params = new URLSearchParams(searchParams);
+    if (selectedSort) {
+      params.set("sort", selectedSort);
+    } else {
+      params.delete("sort");
+    }
+
+    navigate(`/shop?${params.toString()}`);
+    toggleMenu(null);
   };
 
   return (
@@ -123,7 +136,16 @@ function RefinePanel() {
             openDropdown === "sort" ? styles.open : styles.closed
           }`}
         >
-          <div className={styles.sortContent}></div>
+          <div className={styles.sortContent}>
+            <div onClick={() => handleSortSelect("price-asc")}>
+              Price: Low to High
+            </div>
+            <div onClick={() => handleSortSelect("price-desc")}>
+              Price: High to Low
+            </div>
+            <div onClick={() => handleSortSelect("rating-desc")}>Rating</div>
+            <div onClick={() => handleSortSelect("title-asc")}>A to Z</div>
+          </div>
         </div>
       </div>
     </aside>

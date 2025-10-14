@@ -75,6 +75,16 @@
 }
 
 .categoryContent label {
+  cursor: pointer;
+}
+
+.sortContent div {
+  border: 1px solid #f1f2f3;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.categoryContent label {
   display: flex;
   gap: 0.5rem;
 }

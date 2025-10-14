@@ -11,8 +11,8 @@ function Shop() {
   const [searchParams] = useSearchParams();
   const q = searchParams.get("q") || "";
   const category = searchParams.get("category") || "";
-  const sortBy = searchParams.get("sortBy") || "";
-  const order = searchParams.get("order") || "asc";
+  const sortParam = searchParams.get("sort") || "";
+  const [sortBy, order = "asc"] = sortParam.split("-");
   const limit = parseInt(searchParams.get("limit") || 30);
   const skip = parseInt(searchParams.get("skip") || 0);
 
