@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from "react-router";
 import styles from "./RefinePanel.module.css";
 import { LibraryBig, ArrowDownWideNarrow } from "lucide-react";
 import Dropdown from "../../../UI/Dropdown/Dropdown";
-import CheckboxGroup from "./CheckboxGroup/CheckboxGroup";
+import CheckboxGroup from "../../../UI/CheckboxGroup/CheckboxGroup";
 import categoryOptions from "../../../../data/categoryOptions";
 
 function RefinePanel() {
@@ -57,11 +57,13 @@ function RefinePanel() {
         openDropdown={openDropdown}
         toggleMenu={toggleMenu}
       >
-        <CheckboxGroup
-          options={categoryOptions}
-          selectedValue={category}
-          onChange={handleCheckboxChange}
-        />
+        <div className={styles.categoryContent}>
+          <CheckboxGroup
+            options={categoryOptions}
+            selectedValue={category}
+            onChange={handleCheckboxChange}
+          />
+        </div>
       </Dropdown>
 
       <Dropdown

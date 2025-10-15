@@ -1,8 +1,6 @@
-import styles from "./CheckboxGroup.module.css";
-
 function CheckboxGroup({ options, selectedValue, onChange }) {
   return (
-    <div className={styles.categoryContent}>
+    <>
       {options.map(({ label, value }) => (
         <label key={value}>
           <input
@@ -14,7 +12,7 @@ function CheckboxGroup({ options, selectedValue, onChange }) {
           {label}
         </label>
       ))}
-    </div>
+    </>
   );
 }
 export default CheckboxGroup;
