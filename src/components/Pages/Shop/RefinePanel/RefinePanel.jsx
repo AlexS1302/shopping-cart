@@ -3,6 +3,8 @@ import { useNavigate, useSearchParams } from "react-router";
 import styles from "./RefinePanel.module.css";
 import { LibraryBig, ArrowDownWideNarrow } from "lucide-react";
 import Dropdown from "../../../UI/Dropdown/Dropdown";
+import CheckboxGroup from "./CheckboxGroup/CheckboxGroup";
+import categoryOptions from "../../../../data/categoryOptions";
 
 function RefinePanel() {
   const navigate = useNavigate();
@@ -55,53 +57,11 @@ function RefinePanel() {
         openDropdown={openDropdown}
         toggleMenu={toggleMenu}
       >
-        <div className={styles.categoryContent}>
-          <label>
-            <input
-              type="checkbox"
-              value="furniture"
-              checked={category === "furniture"}
-              onChange={handleCheckboxChange}
-            ></input>
-            Furniture
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              value="fragrances"
-              checked={category === "fragrances"}
-              onChange={handleCheckboxChange}
-            ></input>
-            Fragrance
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              value="home-decoration"
-              checked={category === "home-decoration"}
-              onChange={handleCheckboxChange}
-            ></input>
-            Home Decor
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              value="skin-care"
-              checked={category === "skin-care"}
-              onChange={handleCheckboxChange}
-            ></input>
-            Skincare
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              value="beauty"
-              checked={category === "beauty"}
-              onChange={handleCheckboxChange}
-            ></input>
-            Beauty
-          </label>
-        </div>
+        <CheckboxGroup
+          options={categoryOptions}
+          selectedValue={category}
+          onChange={handleCheckboxChange}
+        />
       </Dropdown>
 
       <Dropdown
