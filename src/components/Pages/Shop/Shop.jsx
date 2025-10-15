@@ -4,6 +4,7 @@ import { useOutletContext, useSearchParams } from "react-router";
 import { Star, Heart } from "lucide-react";
 import styles from "./Shop.module.css";
 import RefinePanel from "./RefinePanel/RefinePanel";
+import LoadMoreButton from "./LoadMoreButton/LoadMoreButton";
 
 function Shop() {
   const { setCartItems } = useOutletContext();
@@ -28,7 +29,10 @@ function Shop() {
     [q, category, sortBy, order, limit, skip]
   );
 
-  const { productInfo, loading, error } = useFilteredProducts(filters);
+  const { productInfo, loading, error, totalCount } =
+    useFilteredProducts(filters);
+
+  const showMoreProducts = productInfo.length + skip < totalCount;
 
   if (loading) return <p>Loading</p>;
   if (error) return <p>A network error was encountered</p>;
@@ -69,6 +73,7 @@ function Shop() {
             </article>
           ))}
       </section>
+      {showMoreProducts && <LoadMoreButton limit={limit} skip={skip} />}
     </div>
   );
 }

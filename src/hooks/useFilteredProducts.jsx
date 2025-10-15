@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 function useFilteredProducts(filters) {
   const [productInfo, setProductInfo] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -40,7 +41,15 @@ function useFilteredProducts(filters) {
           rating: product.rating,
         }));
 
-        setProductInfo(simplifiedData);
+        setProductInfo((prev) => {
+          if (skip === 0) {
+            return simplifiedData;
+          } else {
+            return [...prev, ...simplifiedData];
+          }
+        });
+
+        setTotalCount(data.total);
       } catch (error) {
         console.error("Failed to fetch products:", error);
         setError(error);
@@ -52,6 +61,6 @@ function useFilteredProducts(filters) {
     fetchProducts();
   }, [filters]);
 
-  return { productInfo, loading, error };
+  return { productInfo, loading, error, totalCount };
 }
 export default useFilteredProducts;

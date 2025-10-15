@@ -27,6 +27,7 @@ function RefinePanel() {
       params.delete("category");
     }
 
+    params.set("skip", "0");
     navigate(`/shop?${params.toString()}`);
     toggleMenu(null);
   };
@@ -39,6 +40,7 @@ function RefinePanel() {
       params.delete("sort");
     }
 
+    params.set("skip", "0");
     navigate(`/shop?${params.toString()}`);
     toggleMenu(null);
   };
