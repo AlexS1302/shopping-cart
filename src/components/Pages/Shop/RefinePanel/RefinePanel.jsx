@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import styles from "./RefinePanel.module.css";
-import { ChevronDown, LibraryBig, ArrowDownWideNarrow } from "lucide-react";
+import { LibraryBig, ArrowDownWideNarrow } from "lucide-react";
+import Dropdown from "../../../UI/Dropdown/Dropdown";
 
 function RefinePanel() {
   const navigate = useNavigate();
@@ -47,109 +48,80 @@ function RefinePanel() {
 
   return (
     <aside className={styles.refinePanel}>
-      <div className={styles.categoryContainer}>
-        <div
-          className={styles.categoryToggle}
-          onClick={() => toggleMenu("category")}
-        >
-          <div>
-            <LibraryBig />
-            Category
-          </div>
-
-          <ChevronDown
-            className={`${styles.icon} ${
-              openDropdown === "category" ? styles.open : styles.closed
-            }`}
-          />
+      <Dropdown
+        id="category"
+        label="Category"
+        icon={<LibraryBig />}
+        openDropdown={openDropdown}
+        toggleMenu={toggleMenu}
+      >
+        <div className={styles.categoryContent}>
+          <label>
+            <input
+              type="checkbox"
+              value="furniture"
+              checked={category === "furniture"}
+              onChange={handleCheckboxChange}
+            ></input>
+            Furniture
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="fragrances"
+              checked={category === "fragrances"}
+              onChange={handleCheckboxChange}
+            ></input>
+            Fragrance
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="home-decoration"
+              checked={category === "home-decoration"}
+              onChange={handleCheckboxChange}
+            ></input>
+            Home Decor
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="skin-care"
+              checked={category === "skin-care"}
+              onChange={handleCheckboxChange}
+            ></input>
+            Skincare
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="beauty"
+              checked={category === "beauty"}
+              onChange={handleCheckboxChange}
+            ></input>
+            Beauty
+          </label>
         </div>
+      </Dropdown>
 
-        <div
-          className={`${styles.categoryDropdown} ${
-            openDropdown === "category" ? styles.open : styles.closed
-          }`}
-        >
-          <div className={styles.categoryContent}>
-            <label>
-              <input
-                type="checkbox"
-                value="furniture"
-                checked={category === "furniture"}
-                onChange={handleCheckboxChange}
-              ></input>
-              Furniture
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                value="fragrances"
-                checked={category === "fragrances"}
-                onChange={handleCheckboxChange}
-              ></input>
-              Fragrance
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                value="home-decoration"
-                checked={category === "home-decoration"}
-                onChange={handleCheckboxChange}
-              ></input>
-              Home Decor
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                value="skin-care"
-                checked={category === "skin-care"}
-                onChange={handleCheckboxChange}
-              ></input>
-              Skincare
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                value="beauty"
-                checked={category === "beauty"}
-                onChange={handleCheckboxChange}
-              ></input>
-              Beauty
-            </label>
+      <Dropdown
+        id="sort"
+        label="Sort"
+        icon={<ArrowDownWideNarrow />}
+        openDropdown={openDropdown}
+        toggleMenu={toggleMenu}
+      >
+        <div className={styles.sortContent}>
+          <div onClick={() => handleSortSelect("price-asc")}>
+            Price: Low to High
           </div>
-        </div>
-      </div>
-
-      <div className={styles.sortContainer}>
-        <div className={styles.sortToggle} onClick={() => toggleMenu("sort")}>
-          <div>
-            <ArrowDownWideNarrow />
-            Sort
+          <div onClick={() => handleSortSelect("price-desc")}>
+            Price: High to Low
           </div>
-
-          <ChevronDown
-            className={`${styles.icon} ${
-              openDropdown === "sort" ? styles.open : styles.closed
-            }`}
-          />
+          <div onClick={() => handleSortSelect("rating-desc")}>Rating</div>
+          <div onClick={() => handleSortSelect("title-asc")}>A to Z</div>
         </div>
-
-        <div
-          className={`${styles.sortDropdown} ${
-            openDropdown === "sort" ? styles.open : styles.closed
-          }`}
-        >
-          <div className={styles.sortContent}>
-            <div onClick={() => handleSortSelect("price-asc")}>
-              Price: Low to High
-            </div>
-            <div onClick={() => handleSortSelect("price-desc")}>
-              Price: High to Low
-            </div>
-            <div onClick={() => handleSortSelect("rating-desc")}>Rating</div>
-            <div onClick={() => handleSortSelect("title-asc")}>A to Z</div>
-          </div>
-        </div>
-      </div>
+      </Dropdown>
     </aside>
   );
 }

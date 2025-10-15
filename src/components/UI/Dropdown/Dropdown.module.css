@@ -1,0 +1,52 @@
+.dropdownContainer {
+  background-color: white;
+  user-select: none;
+  width: 200px;
+  position: relative;
+}
+
+.dropdownToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  padding: 1rem;
+  border: 1px solid #f1f2f3;
+}
+
+.dropdownToggle div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.icon {
+  transition: transform 0.5s ease;
+}
+
+.icon.open {
+  transform: rotate(180deg);
+}
+
+.icon.closed {
+  transform: rotate(0deg);
+}
+
+.dropdownBody {
+  width: 200px;
+  transition: max-height 0.5s ease;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+}
+
+.dropdownBody.open {
+  max-height: 500px;
+}
+
+.dropdownBody.closed {
+  max-height: 0;
+}

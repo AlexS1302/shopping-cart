@@ -5,65 +5,6 @@
   padding-inline: 2rem;
 }
 
-.categoryContainer,
-.sortContainer {
-  background-color: white;
-  user-select: none;
-  width: 200px;
-  position: relative;
-}
-
-.categoryToggle,
-.sortToggle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  cursor: pointer;
-  padding: 1rem;
-  border: 1px solid #f1f2f3;
-}
-
-.categoryToggle div:first-child,
-.sortToggle div:first-child {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.icon {
-  transition: transform 0.5s ease;
-}
-
-.icon.open {
-  transform: rotate(180deg);
-}
-
-.icon.closed {
-  transform: rotate(0deg);
-}
-
-.categoryDropdown,
-.sortDropdown {
-  width: 200px;
-  transition: max-height 0.5s ease;
-  overflow: hidden;
-  position: absolute;
-  z-index: 1;
-  background-color: white;
-  border-radius: 0 0 10px 10px;
-}
-
-.categoryDropdown.open,
-.sortDropdown.open {
-  max-height: 500px;
-}
-
-.categoryDropdown.closed,
-.sortDropdown.closed {
-  max-height: 0;
-}
-
 .categoryContent,
 .sortContent {
   display: flex;
@@ -76,6 +17,8 @@
 
 .categoryContent label {
   cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .sortContent div {
@@ -83,9 +26,3 @@
   cursor: pointer;
   padding: 0.5rem;
 }
-
-.categoryContent label {
-  display: flex;
-  gap: 0.5rem;
-}
-
