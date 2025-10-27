@@ -1,14 +1,13 @@
 import { useMemo } from "react";
 import useFilteredProducts from "../../../hooks/useFilteredProducts";
-import { useOutletContext, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 import { Star, Heart } from "lucide-react";
 import styles from "./Shop.module.css";
 import RefinePanel from "./RefinePanel/RefinePanel";
 import LoadMoreButton from "./LoadMoreButton/LoadMoreButton";
+import AddToCartButton from "./AddToCartButton/AddToCartButton";
 
 function Shop() {
-  const { setCartItems } = useOutletContext();
-
   const [searchParams] = useSearchParams();
   const q = searchParams.get("q") || "";
   const category = searchParams.get("category") || "";
@@ -63,13 +62,7 @@ function Shop() {
                   {product.rating}
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => setCartItems((prev) => [...prev, product])}
-                className={styles.addToCartBtn}
-              >
-                Add to Cart
-              </button>
+              <AddToCartButton product={product} />
             </article>
           ))}
       </section>

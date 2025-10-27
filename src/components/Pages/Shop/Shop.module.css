@@ -88,19 +88,3 @@
   font-size: 1.2rem;
   font-weight: 500;
 }
-
-.addToCartBtn {
-  color: white;
-  cursor: pointer;
-  font-weight: 500;
-  background-color: #358f80;
-  border-radius: 10px;
-  border: none;
-  padding: 1rem;
-  margin: 0 1rem 2rem 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.addToCartBtn:hover {
-  background-color: #14746f;
-}

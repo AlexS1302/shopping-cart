@@ -39,6 +39,7 @@ function useFilteredProducts(filters) {
           thumbnail: product.thumbnail,
           category: product.category,
           rating: product.rating,
+          quantity: 0,
         }));
 
         setProductInfo((prev) => {
