@@ -1,8 +1,7 @@
-import styles from "./QuantityControls.module.css";
 import { useOutletContext } from "react-router";
 import { Minus, Plus } from "lucide-react";
 
-function QuantityControls({ item }) {
+function QuantityControls({ item, showText, styles }) {
   const { setCartItems } = useOutletContext();
 
   const adjustQuantity = (id, value) => {
@@ -16,7 +15,7 @@ function QuantityControls({ item }) {
   };
 
   return (
-    <div className={styles.qtyControlsContainer}>
+    <>
       <button
         type="button"
         onClick={() => adjustQuantity(item.id, -1)}
@@ -27,7 +26,7 @@ function QuantityControls({ item }) {
 
       <div className={styles.qtyText}>
         <span>{item.quantity}</span>
-        <p>in your basket</p>
+        {showText && <p>in your basket</p>}
       </div>
 
       <button
@@ -37,7 +36,7 @@ function QuantityControls({ item }) {
       >
         <Plus />
       </button>
-    </div>
+    </>
   );
 }
 export default QuantityControls;

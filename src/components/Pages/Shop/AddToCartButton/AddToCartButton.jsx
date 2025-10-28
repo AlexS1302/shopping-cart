@@ -1,6 +1,6 @@
 import styles from "./AddToCartButton.module.css";
 import { useOutletContext } from "react-router";
-import QuantityControls from "./QuantityControls/QuantityControls";
+import QuantityControls from "../../../UI/QuantityControls/QuantityControls";
 
 function AddToCartButton({ product }) {
   const { cartItems, setCartItems } = useOutletContext();
@@ -17,7 +17,13 @@ function AddToCartButton({ product }) {
   return (
     <>
       {matchedItem ? (
-        <QuantityControls item={matchedItem} />
+        <div className={styles.qtyControlsContainer}>
+          <QuantityControls
+            item={matchedItem}
+            showText={true}
+            styles={styles}
+          />
+        </div>
       ) : (
         <button
           type="button"

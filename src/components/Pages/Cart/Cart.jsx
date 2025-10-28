@@ -1,11 +1,11 @@
 import styles from "./Cart.module.css";
 import { useOutletContext } from "react-router";
-import { Trash2, Plus, Minus } from "lucide-react";
+import { Trash2 } from "lucide-react";
+import QuantityControls from "../../UI/QuantityControls/QuantityControls";
 
 function Cart() {
-  const { cartItems, setCartItems } = useOutletContext();
-  console.log(cartItems);
-
+  const { cartItems } = useOutletContext();
+  
   return (
     <div className={styles.Cart}>
       <h2>Your Basket</h2>
@@ -29,13 +29,11 @@ function Cart() {
                 <div className={styles.itemInfoBottom}>
                   <div className={styles.qtyContainer}>
                     <h3>Qty:</h3>
-                    <button type="button" className={styles.qtyButtonMinus}>
-                      <Minus />
-                    </button>
-                    <p>1</p>
-                    <button type="button" className={styles.qtyButtonPlus}>
-                      <Plus />
-                    </button>
+                    <QuantityControls
+                      item={item}
+                      showText={false}
+                      styles={styles}
+                    />
                   </div>
                   <button type="button" className={styles.deleteButton}>
                     <Trash2 />
