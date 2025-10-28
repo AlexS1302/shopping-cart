@@ -1,71 +1,92 @@
 import styles from "./Cart.module.css";
-import { useOutletContext } from "react-router";
-import { Trash2 } from "lucide-react";
+import { useOutletContext, Link } from "react-router";
+import { Trash2, ShoppingBasket} from "lucide-react";
 import QuantityControls from "../../UI/QuantityControls/QuantityControls";
 
 function Cart() {
-  const { cartItems } = useOutletContext();
-  
+  const { cartItems, setCartItems } = useOutletContext();
+
+  const deleteItem = (itemId) => {
+    setCartItems((prev) => prev.filter((product) => product.id !== itemId));
+  };
+
   return (
     <div className={styles.Cart}>
       <h2>Your Basket</h2>
-      <section className={styles.cartSection}>
-        <div className={styles.cartItems}>
-          {cartItems.map((item) => (
-            <article key={item.id} className={styles.cartItemContainer}>
-              <img
-                src={item.thumbnail}
-                alt={`Picture of ${item.title}`}
-                className={styles.itemThumbnail}
-              ></img>
-              <div className={styles.itemInfo}>
-                <div className={styles.itemInfoTop}>
-                  <h3>{item.title}</h3>
-                  <p>£{item.price}</p>
-                </div>
-                <div className={styles.itemInfoMiddle}>
-                  <p>{item.description}</p>
-                </div>
-                <div className={styles.itemInfoBottom}>
-                  <div className={styles.qtyContainer}>
-                    <h3>Qty:</h3>
-                    <QuantityControls
-                      item={item}
-                      showText={false}
-                      styles={styles}
-                    />
+      {cartItems.length > 0 ? (
+        <section className={styles.cartSection}>
+          <div className={styles.cartItems}>
+            {cartItems.map((item) => (
+              <article key={item.id} className={styles.cartItemContainer}>
+                <img
+                  src={item.thumbnail}
+                  alt={`Picture of ${item.title}`}
+                  className={styles.itemThumbnail}
+                ></img>
+                <div className={styles.itemInfo}>
+                  <div className={styles.itemInfoTop}>
+                    <h3>{item.title}</h3>
+                    <p>£{item.price}</p>
                   </div>
-                  <button type="button" className={styles.deleteButton}>
-                    <Trash2 />
-                  </button>
+                  <div className={styles.itemInfoMiddle}>
+                    <p>{item.description}</p>
+                  </div>
+                  <div className={styles.itemInfoBottom}>
+                    <div className={styles.qtyContainer}>
+                      <h3>Qty:</h3>
+                      <QuantityControls
+                        item={item}
+                        showText={false}
+                        styles={styles}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => deleteItem(item.id)}
+                      className={styles.deleteButton}
+                    >
+                      <Trash2 />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : (
+        <section className={styles.emptyCart}>
+          <h3>Your basket is empty</h3>
+          <p>Start shopping to fill it up!</p>
+          <Link to="/shop" className={styles.shopLink}>
+            <ShoppingBasket />
+            Shop
+          </Link>
+        </section>
+      )}
 
-      <aside className={styles.cartSummary}>
-        <h2>Order Summary</h2>
-        <div className={styles.cartPrices}>
-          <div className={styles.subTotal}>
-            <h3>Subtotal</h3>
-            <p>£59.97</p>
+      {cartItems.length > 0 && (
+        <aside className={styles.cartSummary}>
+          <h2>Order Summary</h2>
+          <div className={styles.cartPrices}>
+            <div className={styles.subTotal}>
+              <h3>Subtotal</h3>
+              <p>£59.97</p>
+            </div>
+            <div className={styles.delivery}>
+              <h3>Delivery</h3>
+              <p>£4.50</p>
+            </div>
           </div>
-          <div className={styles.delivery}>
-            <h3>Delivery</h3>
-            <p>£4.50</p>
+          <hr></hr>
+          <div className={styles.total}>
+            <h3>Total</h3>
+            <p>£64.47</p>
           </div>
-        </div>
-        <hr></hr>
-        <div className={styles.total}>
-          <h3>Total</h3>
-          <p>£64.47</p>
-        </div>
-        <button type="button" className={styles.checkoutButton}>
-          Checkout
-        </button>
-      </aside>
+          <button type="button" className={styles.checkoutButton}>
+            Checkout
+          </button>
+        </aside>
+      )}
     </div>
   );
 }
