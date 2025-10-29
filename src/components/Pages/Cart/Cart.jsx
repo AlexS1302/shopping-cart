@@ -1,6 +1,6 @@
 import styles from "./Cart.module.css";
 import { useOutletContext, Link } from "react-router";
-import { Trash2, ShoppingBasket} from "lucide-react";
+import { Trash2, ShoppingBasket } from "lucide-react";
 import QuantityControls from "../../UI/QuantityControls/QuantityControls";
 
 function Cart() {
@@ -9,6 +9,16 @@ function Cart() {
   const deleteItem = (itemId) => {
     setCartItems((prev) => prev.filter((product) => product.id !== itemId));
   };
+
+  const handleCheckout = () => {
+    alert("Thank you! Your order has been successfully placed.");
+    setCartItems([]);
+  };
+
+  const subTotal = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
 
   return (
     <div className={styles.Cart}>
@@ -70,7 +80,7 @@ function Cart() {
           <div className={styles.cartPrices}>
             <div className={styles.subTotal}>
               <h3>Subtotal</h3>
-              <p>£59.97</p>
+              <p>{subTotal}</p>
             </div>
             <div className={styles.delivery}>
               <h3>Delivery</h3>
@@ -80,9 +90,13 @@ function Cart() {
           <hr></hr>
           <div className={styles.total}>
             <h3>Total</h3>
-            <p>£64.47</p>
+            <p>£{(subTotal + 4.5).toFixed(2)}</p>
           </div>
-          <button type="button" className={styles.checkoutButton}>
+          <button
+            type="button"
+            onClick={handleCheckout}
+            className={styles.checkoutButton}
+          >
             Checkout
           </button>
         </aside>
