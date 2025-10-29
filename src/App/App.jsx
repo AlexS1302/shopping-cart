@@ -6,6 +6,7 @@ import styles from "./App.module.css";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [favouriteItems, setFavouriteItems] = useState([]);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
@@ -18,7 +19,14 @@ function App() {
       </header>
 
       <main>
-        <Outlet context={{ cartItems, setCartItems }} />
+        <Outlet
+          context={{
+            cartItems,
+            setCartItems,
+            favouriteItems,
+            setFavouriteItems,
+          }}
+        />
       </main>
 
       <footer>

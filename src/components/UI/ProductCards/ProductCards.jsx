@@ -1,11 +1,29 @@
 import styles from "./ProductCards.module.css";
 import { Star, Heart } from "lucide-react";
+import { useOutletContext } from "react-router";
 import AddToCartButton from "../../Pages/Shop/AddToCartButton/AddToCartButton";
 
 function ProductCards({ product }) {
+  const { favouriteItems, setFavouriteItems } = useOutletContext();
+
+  const isFavourite = favouriteItems.some((item) => item.id === product.id);
+
+  const toggleFavourite = (product) => {
+    setFavouriteItems((prev) =>
+      isFavourite
+        ? prev.filter((item) => item.id !== product.id)
+        : [...prev, product]
+    );
+  };
+
   return (
-    <article key={product.id} className={styles.productCard}>
-      <Heart className={styles.favouriteIcon} />
+    <article className={styles.productCard}>
+      <Heart
+        onClick={() => toggleFavourite(product)}
+        className={`${styles.favouriteIcon} ${
+          isFavourite ? styles.active : ""
+        }`}
+      />
       <img
         src={product.thumbnail}
         alt={`Picture of ${product.title}`}

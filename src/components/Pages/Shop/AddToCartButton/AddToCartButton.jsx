@@ -5,7 +5,7 @@ import QuantityControls from "../../../UI/QuantityControls/QuantityControls";
 function AddToCartButton({ product }) {
   const { cartItems, setCartItems } = useOutletContext();
 
-  const updateCart = () => {
+  const addToCart = () => {
     setCartItems((prev) => [
       ...prev,
       { ...product, quantity: product.quantity + 1 },
@@ -27,7 +27,7 @@ function AddToCartButton({ product }) {
       ) : (
         <button
           type="button"
-          onClick={updateCart}
+          onClick={addToCart}
           className={styles.addToCartBtn}
         >
           Add to Cart

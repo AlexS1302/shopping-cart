@@ -41,7 +41,7 @@ function Shop() {
       <RefinePanel filters={filters} />
       <section className={styles.productGrid}>
         {productInfo.map((product) => (
-          <ProductCards product={product} />
+          <ProductCards key={product.id} product={product} />
         ))}
       </section>
       {showMoreProducts && <LoadMoreButton limit={limit} skip={skip} />}

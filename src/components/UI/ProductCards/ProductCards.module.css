@@ -20,6 +20,11 @@
   transform: scale(1.25);
 }
 
+.favouriteIcon.active {
+  fill: red;
+  stroke: red;
+}
+
 .productText {
   display: flex;
   flex-direction: column;
