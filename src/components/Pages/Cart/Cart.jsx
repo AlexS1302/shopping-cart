@@ -1,7 +1,8 @@
 import styles from "./Cart.module.css";
-import { useOutletContext, Link } from "react-router";
-import { Trash2, ShoppingBasket } from "lucide-react";
+import { useOutletContext } from "react-router";
+import { Trash2 } from "lucide-react";
 import QuantityControls from "../../UI/QuantityControls/QuantityControls";
+import ShopLink from "../../UI/ShopLink/ShopLink";
 
 function Cart() {
   const { cartItems, setCartItems } = useOutletContext();
@@ -65,12 +66,9 @@ function Cart() {
         </section>
       ) : (
         <section className={styles.emptyCart}>
-          <h3>Your basket is empty</h3>
+          <h3>Your basket is empty.</h3>
           <p>Start shopping to fill it up!</p>
-          <Link to="/shop" className={styles.shopLink}>
-            <ShoppingBasket />
-            Shop
-          </Link>
+          <ShopLink />
         </section>
       )}
 

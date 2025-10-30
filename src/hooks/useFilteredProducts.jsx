@@ -19,7 +19,7 @@ function useFilteredProducts(filters) {
         }
 
         let queryParams = `?limit=${limit}&skip=${skip}`;
-        if (q) queryParams += `&q=${q}`;
+        if (q) queryParams += `&q=${encodeURIComponent(q)}`;
         if (sortBy) queryParams += `&sortBy=${sortBy}&order=${order}`;
 
         endpoint += queryParams;

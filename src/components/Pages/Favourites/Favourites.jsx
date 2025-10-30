@@ -1,8 +1,9 @@
 import styles from "./Favourites.module.css";
-import { useOutletContext, Link } from "react-router";
+import { useOutletContext } from "react-router";
 import { useState } from "react";
 import ProductCards from "../../UI/ProductCards/ProductCards";
-import { ShoppingBasket, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
+import ShopLink from "../../UI/ShopLink/ShopLink";
 
 function Favourites() {
   const { favouriteItems } = useOutletContext();
@@ -23,7 +24,7 @@ function Favourites() {
         </section>
       ) : (
         <section className={styles.emptyFavourites}>
-          <h3>Your favourites list is empty</h3>
+          <h3>Your favourites list is empty.</h3>
           <p>
             Tap the{" "}
             <Heart
@@ -34,10 +35,7 @@ function Favourites() {
             />
             to save the items you love!
           </p>
-          <Link to="/shop" className={styles.shopLink}>
-            <ShoppingBasket />
-            Shop
-          </Link>
+          <ShopLink />
         </section>
       )}
     </div>

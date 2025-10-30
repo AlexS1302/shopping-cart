@@ -5,6 +5,7 @@ import styles from "./Shop.module.css";
 import RefinePanel from "./RefinePanel/RefinePanel";
 import LoadMoreButton from "./LoadMoreButton/LoadMoreButton";
 import ProductCards from "../../UI/ProductCards/ProductCards";
+import ShopLink from "../../UI/ShopLink/ShopLink";
 
 function Shop() {
   const [searchParams] = useSearchParams();
@@ -38,13 +39,23 @@ function Shop() {
 
   return (
     <div className={styles.Shop}>
-      <RefinePanel filters={filters} />
-      <section className={styles.productGrid}>
-        {productInfo.map((product) => (
-          <ProductCards key={product.id} product={product} />
-        ))}
-      </section>
-      {showMoreProducts && <LoadMoreButton limit={limit} skip={skip} />}
+      {productInfo.length > 0 ? (
+        <>
+          <RefinePanel filters={filters} />
+          <section className={styles.productGrid}>
+            {productInfo.map((product) => (
+              <ProductCards key={product.id} product={product} />
+            ))}
+          </section>
+          {showMoreProducts && <LoadMoreButton limit={limit} skip={skip} />}
+        </>
+      ) : (
+        <section className={styles.emptyShop}>
+          <h3>Oops, nothing turned up for "{q}".</h3>
+          <p>Try searching with different keywords!</p>
+          <ShopLink />
+        </section>
+      )}
     </div>
   );
 }

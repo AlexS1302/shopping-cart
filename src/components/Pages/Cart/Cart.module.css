@@ -30,26 +30,6 @@
   font-size: 1.3rem;
 }
 
-.shopLink {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: white;
-  background-color: black;
-  border: none;
-  border-radius: 10px;
-  padding: 0.8rem 1rem;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.shopLink:hover {
-  background-color: #333333;
-}
-
 /* left side */
 
 .cartItems {
