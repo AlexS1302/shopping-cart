@@ -6,8 +6,13 @@
   width: 100vw; /* to prevent layout shift due to scrollbar */
 }
 
-.hamburgerIcon {
+.hamburgerIcon,
+.mobileLinks {
   display: none;
+}
+
+.desktopLinks {
+  display: block;
 }
 
 nav {
@@ -37,4 +42,17 @@ nav {
   height: 40px;
 }
 
+@media (max-width: 1200px) {
+  .hamburgerIcon {
+    display: block;
+  }
 
+  .desktopLinks {
+    display: none;
+  }
+
+  .mobileLinks {
+    display: block;
+    background-color: white;
+  }
+}

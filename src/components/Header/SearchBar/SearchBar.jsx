@@ -32,7 +32,7 @@ function SearchBar() {
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Skincare"
+        placeholder="Fragrance"
         size="30"
         className={styles.searchInput}
       ></input>
