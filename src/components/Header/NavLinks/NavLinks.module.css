@@ -52,3 +52,9 @@
 .favouritesLink:hover::after {
   width: 100%;
 }
+
+@media (max-width: 1200px) {
+  .navLinks {
+    flex-direction: column;
+  }
+}

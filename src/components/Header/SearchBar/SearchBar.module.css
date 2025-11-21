@@ -42,3 +42,7 @@
 .searchButton:hover {
   background-color: #333333;
 }
+
+.hidden {
+  visibility: hidden;
+}
