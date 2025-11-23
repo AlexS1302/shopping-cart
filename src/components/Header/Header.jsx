@@ -8,16 +8,16 @@ import useBreakpoint from "../../hooks/useBreakpoint";
 import { useState, useEffect } from "react";
 
 function Header() {
-  const isAbove1200 = useBreakpoint("(min-width: 1200px)");
+  const isBelow1200 = useBreakpoint("(max-width: 1200px)");
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const toggleHamburger = () => setHamburgerOpen(!hamburgerOpen);
 
   // prevent menu from remaining open if screen size is changed
   useEffect(() => {
-    if (isAbove1200) {
+    if (!isBelow1200) {
       setHamburgerOpen(false);
     }
-  }, [isAbove1200]);
+  }, [isBelow1200]);
 
   useEffect(() => {
     if (hamburgerOpen) {
@@ -30,26 +30,7 @@ function Header() {
   return (
     <div className={`${styles.Header} ${hamburgerOpen ? styles.expand : ""}`}>
       <nav className={`${hamburgerOpen ? styles.hamburgerNav : ""}`}>
-        {isAbove1200 ? (
-          <>
-            <h1 className={styles.headerTitle}>
-              <Link to="/" onClick={() => setHamburgerOpen(false)}>
-                <img
-                  src={logo}
-                  alt="Plentiful Logo"
-                  className={styles.logo}
-                ></img>
-                Plentiful
-              </Link>
-            </h1>
-
-            <SearchBar hamburgerOpen={hamburgerOpen} />
-
-            <div className={styles.desktopLinks}>
-              <NavLinks />
-            </div>
-          </>
-        ) : (
+        {isBelow1200 ? (
           <>
             <div className={styles.mobileLeftSide}>
               <h1 className={styles.headerTitle}>
@@ -65,9 +46,7 @@ function Header() {
             </div>
 
             <div className={styles.mobileRightSide}>
-              {hamburgerOpen ? null : (
-                <SearchBar hamburgerOpen={hamburgerOpen} />
-              )}
+              {hamburgerOpen ? null : <SearchBar isBelow1200={isBelow1200} />}
 
               <Menu
                 className={styles.hamburgerIcon}
@@ -79,6 +58,25 @@ function Header() {
                 <NavLinks onClick={() => setHamburgerOpen(false)} />
               </div>
             )}
+          </>
+        ) : (
+          <>
+            <h1 className={styles.headerTitle}>
+              <Link to="/" onClick={() => setHamburgerOpen(false)}>
+                <img
+                  src={logo}
+                  alt="Plentiful Logo"
+                  className={styles.logo}
+                ></img>
+                Plentiful
+              </Link>
+            </h1>
+
+            <SearchBar isBelow1200={isBelow1200} />
+
+            <div className={styles.desktopLinks}>
+              <NavLinks />
+            </div>
           </>
         )}
       </nav>

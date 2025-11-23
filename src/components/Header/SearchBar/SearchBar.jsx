@@ -2,10 +2,8 @@ import styles from "./SearchBar.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Search } from "lucide-react";
-import useBreakpoint from "../../../hooks/useBreakpoint";
 
-function SearchBar({ hamburgerOpen }) {
-  const isAbove1200 = useBreakpoint("(min-width: 1200px)");
+function SearchBar({ isBelow1200 }) {
   const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState("");
 
@@ -27,12 +25,12 @@ function SearchBar({ hamburgerOpen }) {
 
   return (
     <>
-      {isAbove1200 ? (
-        <div
-          className={`${styles.searchSection} ${
-            hamburgerOpen ? styles.hidden : ""
-          }`}
-        >
+      {isBelow1200 ? (
+        <div className={styles.searchSection}>
+          <Search className={styles.searchIcon} />
+        </div>
+      ) : (
+        <div className={styles.searchSection}>
           <Search className={styles.searchIcon} />
           <input
             id="search"
@@ -51,10 +49,6 @@ function SearchBar({ hamburgerOpen }) {
           >
             Search
           </button>
-        </div>
-      ) : (
-        <div className={styles.searchSection}>
-          <Search className={styles.searchIcon} />
         </div>
       )}
     </>
