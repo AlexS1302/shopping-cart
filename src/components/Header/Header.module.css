@@ -1,7 +1,7 @@
 .Header {
   display: flex;
   justify-content: center;
-  padding: clamp(0rem, -0.7rem + 1.9vw, 1rem);
+  padding: clamp(0rem, 1.5vw, 1rem);
   width: 100vw; /* to prevent layout shift due to scrollbar */
 }
 
@@ -27,7 +27,7 @@ nav {
   align-items: center;
   gap: 1rem;
   text-align: center;
-  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-size: clamp(1.3rem, 3vw, 2rem);
 }
 
 .headerTitle a,
@@ -84,5 +84,11 @@ nav {
   .noScroll {
     overflow: hidden;
     height: 100vh;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    padding-inline: clamp(0.5rem, 1.5vw, 3rem);
   }
 }

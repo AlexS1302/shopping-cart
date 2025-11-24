@@ -1,5 +1,6 @@
 import styles from "./HomePage.module.css";
 import { useNavigate } from "react-router";
+import ResponsiveHero from "../../UI/ResponsiveHero/ResponsiveHero";
 import furniturePic from "../../../assets/images/top-categories/furniture.jpg";
 import fragrancePic from "../../../assets/images/top-categories/fragrance.jpg";
 import homeDecorPic from "../../../assets/images/top-categories/home-decor.jpg";
@@ -16,6 +17,7 @@ function HomePage() {
   return (
     <div className={styles.HomePage}>
       <section className={styles.hero}>
+        <ResponsiveHero />
         {/* <button type="button">Explore Skincare</button> */}
       </section>
 
