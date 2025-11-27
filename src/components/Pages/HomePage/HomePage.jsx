@@ -6,6 +6,7 @@ import fragrancePic from "../../../assets/images/top-categories/fragrance.jpg";
 import homeDecorPic from "../../../assets/images/top-categories/home-decor.jpg";
 import skincarePic from "../../../assets/images/top-categories/skincare.jpg";
 import beautyPic from "../../../assets/images/top-categories/beauty.jpg";
+import { MailPlus } from "lucide-react";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -106,7 +107,7 @@ function HomePage() {
           </h2>
         </div>
 
-        <div>
+        <div className={styles.newsletterInputContainer}>
           <input
             type="text"
             id="newsletterInput"
@@ -115,7 +116,8 @@ function HomePage() {
             placeholder="Enter your email"
           ></input>
           <button type="button" className={styles.newsletterButton}>
-            Subscribe
+            <span className={styles.buttonText}>Subscribe</span>
+            <MailPlus className={styles.buttonIcon} />
           </button>
         </div>
       </section>
