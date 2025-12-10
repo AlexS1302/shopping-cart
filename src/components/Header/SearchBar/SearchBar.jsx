@@ -1,11 +1,13 @@
 import styles from "./SearchBar.module.css";
-import { useState } from "react";
+import SearchControls from "./SearchControls/SearchControls";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 function SearchBar({ isBelow1200 }) {
   const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState("");
+  const [overlay, setOverlay] = useState(false);
 
   const handleSearch = () => {
     const trimmed = searchInput.trim();
@@ -15,40 +17,53 @@ function SearchBar({ isBelow1200 }) {
       navigate("/shop");
     }
     setSearchInput("");
+    setOverlay(false)
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleSearch();
+  useEffect(() => {
+    if (overlay) {
+      document.body.classList.add(styles["noScroll"]);
+    } else {
+      document.body.classList.remove(styles["noScroll"]);
     }
-  };
+  }, [overlay]);
 
   return (
     <>
       {isBelow1200 ? (
-        <div className={styles.searchSection}>
-          <Search className={styles.searchIcon} />
+        <div className={`${styles.searchSection}`}>
+          {overlay ? (
+            <div className={styles.blackBg}>
+              <div className={styles.overlayContainer}>
+                <div className={styles.overlayControls}>
+                  <SearchControls
+                    searchInput={searchInput}
+                    setSearchInput={setSearchInput}
+                    handleSearch={handleSearch}
+                  />
+                </div>
+
+                <X
+                  className={styles.closeIcon}
+                  onClick={() => setOverlay(false)}
+                />
+              </div>
+            </div>
+          ) : (
+            <Search
+              className={styles.searchIcon}
+              onClick={() => setOverlay(true)}
+            />
+          )}
         </div>
       ) : (
         <div className={styles.searchSection}>
           <Search className={styles.searchIcon} />
-          <input
-            id="search"
-            name="search"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Fragrance"
-            size="30"
-            className={styles.searchInput}
-          ></input>
-          <button
-            type="button"
-            className={styles.searchButton}
-            onClick={handleSearch}
-          >
-            Search
-          </button>
+          <SearchControls
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+            handleSearch={handleSearch}
+          />
         </div>
       )}
     </>

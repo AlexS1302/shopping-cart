@@ -19,7 +19,6 @@ function HomePage() {
     <div className={styles.HomePage}>
       <section className={styles.hero}>
         <ResponsiveHero />
-        {/* <button type="button">Explore Skincare</button> */}
       </section>
 
       <section className={styles.categoriesContainer}>
@@ -63,11 +62,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* <section className={styles.mostPopularContainer}>
-        <h2 className={styles.mostPopularTitle}>Most Popular</h2>
-        <div className={styles.mostPopularGrid}></div>
-      </section> */}
 
       <section className={styles.aboutUsContainer}>
         <h2 className={styles.aboutUsTitle}>About Us</h2>
