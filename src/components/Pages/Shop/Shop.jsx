@@ -35,7 +35,6 @@ function Shop() {
 
   if (loading) return <p>Loading</p>;
   if (error) return <p>A network error was encountered</p>;
-  console.log("Fetched product info:", productInfo);
 
   return (
     <div className={styles.Shop}>

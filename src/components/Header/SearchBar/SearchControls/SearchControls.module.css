@@ -1,6 +1,6 @@
 .searchInput {
   border-radius: 20px;
-  padding: 0.7rem 5rem 0.7rem 2.5rem;
+  padding: 0.7rem 5rem 0.7rem 2rem;
   width: 100%;
   border: none;
   outline: none;
@@ -36,6 +36,7 @@
   .searchButton {
     display: none;
   }
+
   .searchInput {
     padding: 0.5rem 1.5rem;
   }

@@ -78,7 +78,7 @@ function Cart() {
           <div className={styles.cartPrices}>
             <div className={styles.subTotal}>
               <h3>Subtotal</h3>
-              <p>{subTotal}</p>
+              <p>{subTotal.toFixed(2)}</p>
             </div>
             <div className={styles.delivery}>
               <h3>Delivery</h3>

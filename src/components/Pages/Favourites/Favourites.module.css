@@ -56,3 +56,23 @@
   fill: red;
   stroke: red;
 }
+
+@media (max-width: 655px) {
+  .productGrid {
+    grid-template-columns: minmax(200px, 1fr);
+  }
+
+  .Favourites > h2 {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .emptyFavourites {
+    text-align: center;
+  }
+
+  .emptyFavourites p {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

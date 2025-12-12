@@ -22,12 +22,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5rem;
+  justify-content: center;
   text-align: center;
+  height: 100%;
 }
 
 .emptyShop h3 {
-  margin-bottom: 0;
+  margin: 0;
   font-size: 2rem;
 }
 
@@ -36,7 +37,7 @@
 }
 
 @media (max-width: 600px) {
-  .emptyShop {
-    padding-top: 0;
+  .productGrid {
+    grid-template-columns: minmax(200px, 1fr);
   }
 }
