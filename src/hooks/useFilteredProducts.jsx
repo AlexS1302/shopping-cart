@@ -55,6 +55,7 @@ function useFilteredProducts(filters) {
         console.error("Failed to fetch products:", error);
         setError(error);
       } finally {
+        await new Promise(res => setTimeout(res, 2000)); // simulate delay
         setLoading(false);
       }
     }

@@ -33,28 +33,27 @@ function Shop() {
 
   const showMoreProducts = productInfo.length + skip < totalCount;
 
-  if (loading) return <p>Loading</p>;
+  if (!loading && productInfo.length === 0) {
+    return (
+      <section className={styles.emptyShop}>
+        <h3>Oops, nothing turned up for "{q}".</h3>
+        <p>Try searching with different keywords!</p> <ShopLink />
+      </section>
+    );
+  }
+
   if (error) return <p>A network error was encountered</p>;
 
   return (
     <div className={styles.Shop}>
-      {productInfo.length > 0 ? (
-        <>
-          <RefinePanel filters={filters} />
-          <section className={styles.productGrid}>
-            {productInfo.map((product) => (
-              <ProductCards key={product.id} product={product} />
-            ))}
-          </section>
-          {showMoreProducts && <LoadMoreButton limit={limit} skip={skip} />}
-        </>
-      ) : (
-        <section className={styles.emptyShop}>
-          <h3>Oops, nothing turned up for "{q}".</h3>
-          <p>Try searching with different keywords!</p>
-          <ShopLink />
-        </section>
-      )}
+      <RefinePanel filters={filters} />
+      <section className={styles.productGrid}>
+        {productInfo.map((product) => (
+          <ProductCards key={product.id} product={product} loading={loading} />
+        ))}
+      </section>
+      {console.log(productInfo.map((p) => p.id))}
+      {showMoreProducts && <LoadMoreButton limit={limit} skip={skip} />}
     </div>
   );
 }

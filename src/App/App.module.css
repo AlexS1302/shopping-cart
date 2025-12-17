@@ -1,6 +1,6 @@
 .App {
   display: grid;
-  grid-template-rows: minmax(100px, max-content) minmax(380px, max-content) 1fr;
+  grid-template-rows: minmax(100px, max-content) minmax(81vh, max-content) 1fr;
   min-height: 100vh;
   background-color: #f8f8f8;
   overflow-x: hidden;
