@@ -11,7 +11,11 @@ function App() {
   const isHomePage = location.pathname === "/";
 
   return (
-    <div className={styles.App}>
+    <div
+      className={`${styles.App} ${
+        isHomePage ? styles.homePage : styles.otherPage
+      }`}
+    >
       <header
         className={isHomePage ? styles.overlayHeader : styles.normalHeader}
       >

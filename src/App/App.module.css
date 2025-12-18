@@ -1,6 +1,5 @@
 .App {
   display: grid;
-  grid-template-rows: minmax(100px, max-content) minmax(81vh, max-content) 1fr;
   min-height: 100vh;
   background-color: #f8f8f8;
   overflow-x: hidden;
@@ -8,11 +7,19 @@
   position: relative;
 }
 
+.homePage {
+  grid-template-rows: 1fr auto;
+}
+
 .overlayHeader {
   position: absolute;
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
   z-index: 1;
+}
+
+.otherPage {
+  grid-template-rows: minmax(100px, auto) minmax(81vh, 1fr) auto;
 }
 
 .normalHeader {

@@ -7,3 +7,15 @@
   box-shadow: var(--box-shadow-light);
   user-select: none;
 }
+
+@media (min-width: 600px) {
+  .heroImg {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroImg {
+    aspect-ratio: 4 / 5;
+  }
+}
