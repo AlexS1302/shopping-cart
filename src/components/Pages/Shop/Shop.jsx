@@ -37,7 +37,8 @@ function Shop() {
     return (
       <section className={styles.emptyShop}>
         <h3>Oops, nothing turned up for "{q}".</h3>
-        <p>Try searching with different keywords!</p> <ShopLink />
+        <p>Try searching with different keywords!</p>
+        <ShopLink />
       </section>
     );
   }

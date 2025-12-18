@@ -8,6 +8,10 @@ function useFilteredProducts(filters) {
 
   useEffect(() => {
     async function fetchProducts() {
+      // reset state before fetch
+      setLoading(true);
+      setError(null);
+
       try {
         const { q, category, sortBy, order, limit, skip } = filters;
 
@@ -55,7 +59,7 @@ function useFilteredProducts(filters) {
         console.error("Failed to fetch products:", error);
         setError(error);
       } finally {
-        await new Promise(res => setTimeout(res, 2000)); // simulate delay
+        await new Promise((res) => setTimeout(res, 500)); // simulate delay
         setLoading(false);
       }
     }
