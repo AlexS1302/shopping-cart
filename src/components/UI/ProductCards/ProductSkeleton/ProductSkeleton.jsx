@@ -4,7 +4,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 function ProductSkeleton() {
   return (
-    <>
+    <article className={styles.productCard}>
       <Skeleton className={styles.productThumbnail} />
 
       <div className={styles.productText}>
@@ -26,7 +26,7 @@ function ProductSkeleton() {
       <div className={styles.skeletonButton}>
         <Skeleton height={50} />
       </div>
-    </>
+    </article>
   );
 }
 export default ProductSkeleton;

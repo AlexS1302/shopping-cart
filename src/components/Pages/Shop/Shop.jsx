@@ -6,6 +6,7 @@ import RefinePanel from "./RefinePanel/RefinePanel";
 import LoadMoreButton from "./LoadMoreButton/LoadMoreButton";
 import ProductCards from "../../UI/ProductCards/ProductCards";
 import ShopLink from "../../UI/ShopLink/ShopLink";
+import ProductSkeleton from "../../UI/ProductCards/ProductSkeleton/ProductSkeleton";
 
 function Shop() {
   const [searchParams] = useSearchParams();
@@ -49,9 +50,17 @@ function Shop() {
     <div className={styles.Shop}>
       <RefinePanel filters={filters} />
       <section className={styles.productGrid}>
-        {productInfo.map((product) => (
-          <ProductCards key={product.id} product={product} loading={loading} />
-        ))}
+        {loading
+          ? Array.from({ length: 12 }, (_, index) => (
+              <ProductSkeleton key={index} />
+            ))
+          : productInfo.map((product) => (
+              <ProductCards
+                key={product.id}
+                product={product}
+                loading={loading}
+              />
+            ))}
       </section>
       {console.log(productInfo.map((p) => p.id))}
       {showMoreProducts && <LoadMoreButton limit={limit} skip={skip} />}
