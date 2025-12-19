@@ -46,6 +46,12 @@
   border: 2px solid #f1f2f3;
 }
 
+.itemThumbnail {
+  width: 300px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+}
+
 .itemInfo {
   padding: 1rem 2rem 1rem 0;
   display: flex;
