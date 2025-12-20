@@ -53,11 +53,14 @@ function useFilteredProducts(filters) {
         }));
 
         setProductInfo((prev) => {
-          if (skip === 0) {
-            return simplifiedData;
-          } else {
-            return [...prev, ...simplifiedData];
-          }
+          const combinedProducts =
+            skip === 0 ? simplifiedData : [...prev, ...simplifiedData];
+
+          const uniqueProducts = Array.from(
+            new Map(combinedProducts.map((p) => [p.id, p])).values()
+          );
+
+          return uniqueProducts;
         });
 
         setTotalCount(data.total);

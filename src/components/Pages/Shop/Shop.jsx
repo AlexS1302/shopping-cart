@@ -64,7 +64,6 @@ function Shop() {
             <ProductSkeleton key={`moreSkeleton-${i}`} />
           ))}
       </section>
-      {console.log(productInfo.map((p) => p.id))}
       {showMoreProducts && <LoadMoreButton limit={limit} skip={skip} />}
     </div>
   );
