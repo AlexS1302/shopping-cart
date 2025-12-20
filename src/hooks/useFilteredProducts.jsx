@@ -4,17 +4,23 @@ function useFilteredProducts(filters) {
   const [productInfo, setProductInfo] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchProducts() {
+      const { q, category, sortBy, order, limit, skip } = filters;
+
       // reset state before fetch
-      setLoading(true);
+      if (skip === 0) {
+        setLoading(true);
+      } else {
+        setLoadingMore(true);
+      }
+
       setError(null);
 
       try {
-        const { q, category, sortBy, order, limit, skip } = filters;
-
         let endpoint = "https://dummyjson.com/products";
         if (category) {
           endpoint += `/category/${category}`;
@@ -61,12 +67,13 @@ function useFilteredProducts(filters) {
       } finally {
         await new Promise((res) => setTimeout(res, 500)); // simulate delay
         setLoading(false);
+        setLoadingMore(false);
       }
     }
 
     fetchProducts();
   }, [filters]);
 
-  return { productInfo, loading, error, totalCount };
+  return { productInfo, loading, loadingMore, error, totalCount };
 }
 export default useFilteredProducts;

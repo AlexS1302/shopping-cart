@@ -29,7 +29,7 @@ function Shop() {
     [q, category, sortBy, order, limit, skip]
   );
 
-  const { productInfo, loading, error, totalCount } =
+  const { productInfo, loading, loadingMore, error, totalCount } =
     useFilteredProducts(filters);
 
   const showMoreProducts = productInfo.length + skip < totalCount;
@@ -50,17 +50,19 @@ function Shop() {
     <div className={styles.Shop}>
       <RefinePanel filters={filters} />
       <section className={styles.productGrid}>
-        {loading
-          ? Array.from({ length: 12 }, (_, index) => (
-              <ProductSkeleton key={index} />
-            ))
-          : productInfo.map((product) => (
-              <ProductCards
-                key={product.id}
-                product={product}
-                loading={loading}
-              />
-            ))}
+        {loading &&
+          Array.from({ length: 12 }).map((_, i) => (
+            <ProductSkeleton key={`initialSkeleton-${i}`} />
+          ))}
+
+        {productInfo.map((product) => (
+          <ProductCards key={product.id} product={product} />
+        ))}
+
+        {loadingMore &&
+          Array.from({ length: 12 }).map((_, i) => (
+            <ProductSkeleton key={`moreSkeleton-${i}`} />
+          ))}
       </section>
       {console.log(productInfo.map((p) => p.id))}
       {showMoreProducts && <LoadMoreButton limit={limit} skip={skip} />}
