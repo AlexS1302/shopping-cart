@@ -30,7 +30,7 @@ You can view this project [here](https://alexs1302-plentiful.vercel.app/)!
 
 ## Project Interface (Screenshots)
 ### Desktop View
-#### Home page
+#### Home Page
 ![Screenshot of the Hero section on desktop](public/images/desktop/hero.png)
 
 ![Screenshot of the Categories section on desktop](public/images/desktop/categories.png)
@@ -40,13 +40,13 @@ You can view this project [here](https://alexs1302-plentiful.vercel.app/)!
 #### Shop Page
 ![Screenshot of the Products on desktop](public/images/desktop/products.png)
 
-### Mobile view
-#### Home page
+### Mobile View
+#### Home Page
 ![Screenshot of the Hero section on mobile](public/images/mobile/hero.png)
 
 ![Screenshot of the Categories section on mobile](public/images/mobile/categories.png)
 
-#### Shop page
+#### Shop Page
 ![Screenshot of the Products on mobile](public/images/mobile/products.png)
 
 ## Credits
