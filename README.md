@@ -26,23 +26,27 @@ The website is fully responsive and works across desktop, tablet and mobile devi
 * DummyJSON (for products)
 
 ## Project Link
-You can view this project [here](https://alexs1302-shopping-cart.vercel.app/)!
+You can view this project [here](https://alexs1302-plentiful.vercel.app/)!
 
 ## Project Interface (Screenshots)
 ### Desktop View
+#### Home page
 ![Screenshot of the Hero section on desktop](public/images/desktop/hero.png)
 
 ![Screenshot of the Categories section on desktop](public/images/desktop/categories.png)
 
 ![Screenshot of the About Us section on desktop](public/images/desktop/about-us.png)
 
+#### Shop Page
 ![Screenshot of the Products on desktop](public/images/desktop/products.png)
 
 ### Mobile view
+#### Home page
 ![Screenshot of the Hero section on mobile](public/images/mobile/hero.png)
 
 ![Screenshot of the Categories section on mobile](public/images/mobile/categories.png)
 
+#### Shop page
 ![Screenshot of the Products on mobile](public/images/mobile/products.png)
 
 ## Credits
